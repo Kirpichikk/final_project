@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LoginPage</title>
+</head>
+<body>
+    {% if wrong %}
+    <p style = "color: red">неверно введён пароль или логин</p>
+    {% endif %}
+
+  <form action="" method="post">
+    <input type="text" name="login" placeholder="Login"><br>
+    <input type = "password" name = "password" placeholder="password"><br>
+    <input type = "submit" value="Отправить">
+  </form>
+</body>
+</html>
