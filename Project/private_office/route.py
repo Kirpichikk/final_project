@@ -14,7 +14,6 @@ privateOffice_Blueprint = Blueprint(
 def main_office_handler():
     if session['role'] == 'doctor':
         schedule = shedule(session['id_inside'])
-        print(schedule)
         data = private_data(session['id_inside'])
 
     return render_template('private_office.html',

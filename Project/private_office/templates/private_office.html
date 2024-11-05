@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Cabinet</title>
   <style>
-    .personalData {
+      .personalData {
       display: inline-block; /* Делаем элемент блочным */
       padding: 10px 20px; /* Отступы внутри кнопки */
       font-size: 16px; /* Размер шрифта */
@@ -12,7 +12,23 @@
       background-color: #66CDAA; /* Цвет фона */
       text-decoration: none; /* Убираем подчеркивание */
       border-radius: 5px;
-    }
+      }
+
+      .Doctor{
+        display: grid; /* Используем CSS Grid */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Автоматическое заполнение колонок */
+        gap: 16px; /* Промежуток между ячейками */
+        padding: 16px;
+      }
+
+      .cell{
+        background-color: #f2f2f2; /* Цвет фона ячейки */
+        border: 1px solid #dddddd; /* Граница ячейки */
+        padding: 20px; /* Отступы внутри ячейки */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для ячейки */
+        border-radius: 5px; /* Закругленные углы */
+        transition: transform 0.2s;
+      }
   </style>
 </head>
 <body>
@@ -25,12 +41,13 @@
     {% if role == 'doctor' %}
     <div class = Doctor>
         {% for data in unique_data %}
-        <a class = >
-            <p>имя : {{data['rec_time']}}</p>
-            <p>специализация: {{data['name_patient']}}</p>
+        <a class = cell>
+            <p>время: {{data['rec_time']}}</p>
+            <p>Имя пациента: {{data['name_patient']}}</p>
         </a>
         {% endfor %}
     </div>
+
     {% elif role == 'supremedoctor' %}
     <div class = SupremeDoctor>
 
