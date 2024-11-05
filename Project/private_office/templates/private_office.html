@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cabinet</title>
+  <style>
+    .personalData {
+      display: inline-block; /* Делаем элемент блочным */
+      padding: 10px 20px; /* Отступы внутри кнопки */
+      font-size: 16px; /* Размер шрифта */
+      color: black; /* Цвет текста */
+      background-color: #66CDAA; /* Цвет фона */
+      text-decoration: none; /* Убираем подчеркивание */
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+    <div class = personalData>
+      <p>имя : {{data['doctor_name']}}</p>
+      <p>специализация: {{data['specialization']}}</p>
+      <p>департамент: {{data['name_department']}}</p>
+    </div>
+
+    {% if role == 'doctor' %}
+    <div class = Doctor>
+        {% for data in unique_data %}
+        <a class = >
+            <p>имя : {{data['rec_time']}}</p>
+            <p>специализация: {{data['name_patient']}}</p>
+        </a>
+        {% endfor %}
+    </div>
+    {% elif role == 'supremedoctor' %}
+    <div class = SupremeDoctor>
+
+    </div>
+    {% elif role == 'admin' %}
+    <div class = Admin>
+
+    </div>
+    {% elif role == 'register' %}
+    <div class = Register>
+
+    </div>
+    {% endif %}
+</body>
+</html>
