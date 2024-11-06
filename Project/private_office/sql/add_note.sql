@@ -1,0 +1,1 @@
+INSERT INTO `new_schema`.`visit` (`appoint_date`, `diagnosis`, `complains`, `appointments`, `id_visit_card`, `id_doctor`) VALUES ('$date', '$diagnosis', '$complains', '$appointment', '$id_patient', '$id_doctor')

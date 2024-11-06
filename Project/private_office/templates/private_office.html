@@ -3,67 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <title>Cabinet</title>
-  <style>
-      .personalData {
-      display: inline-block; /* Делаем элемент блочным */
-      padding: 10px 20px; /* Отступы внутри кнопки */
-      font-size: 16px; /* Размер шрифта */
-      color: black; /* Цвет текста */
-      background-color: #66CDAA; /* Цвет фона */
-      text-decoration: none; /* Убираем подчеркивание */
-      border-radius: 5px;
-      }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Цвет фона страницы */
+            margin: 0; /* Убираем отступы */
+            padding: 20px; /* Отступы вокруг содержимого */
+        }
 
-      .Doctor{
-        display: grid; /* Используем CSS Grid */
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Автоматическое заполнение колонок */
-        gap: 16px; /* Промежуток между ячейками */
-        padding: 16px;
-      }
+        .personalData {
+            display: inline-block; /* Делаем элемент блочным */
+            padding: 20px; /* Отступы внутри блока */
+            font-size: 18px; /* Размер шрифта */
+            color: black; /* Цвет текста */
+            background-color: #66CDAA; /* Цвет фона */
+            text-decoration: none; /* Убираем подчеркивание */
+            border-radius: 8px; /* Скругление углов */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для блока */
+            margin-bottom: 20px; /* Отступ снизу */
+            width: 100%; /* Ширина блока */
+            max-width: 600px; /* Максимальная ширина блока */
+        }
 
-      .cell{
-        background-color: #f2f2f2; /* Цвет фона ячейки */
-        border: 1px solid #dddddd; /* Граница ячейки */
-        padding: 20px; /* Отступы внутри ячейки */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для ячейки */
-        border-radius: 5px; /* Закругленные углы */
-        transition: transform 0.2s; /* Минимальная ширина ячейки */
-        width: auto;
-      }
-  </style>
+        .Doctor {
+            display: grid; /* Используем CSS Grid */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Автоматическое заполнение колонок */
+            gap: 16px; /* Промежуток между ячейками */
+            padding: 16px;
+        }
+
+        .cell {
+            background-color: #ffffff; /* Цвет фона ячейки */
+            border: 1px solid #dddddd; /* Граница ячейки */
+            padding: 20px; /* Отступы внутри ячейки */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для ячейки */
+            border-radius: 5px; /* Закругленные углы */
+            transition: transform 0.2s; /* Плавный переход при наведении */
+            cursor: pointer; /* Указатель при наведении */
+            text-align: center; /* Центрирование текста */
+        }
+
+        .cell:hover {
+            transform: scale(1.05); /* Увеличение ячейки при наведении */
+        }
+
+        .cell p {
+            margin: 5px 0; /* Отступы для параграфов */
+            font-size: 16px; /* Размер шрифта для текста в ячейках */
+        }
+
+        button {
+            background-color: transparent; /* Прозрачный фон для кнопки */
+            border: none; /* Убираем границу */
+            padding: 0; /* Убираем отступы */
+            cursor: pointer; /* Указатель при наведении */
+            width: 100%; /* Ширина кнопки */
+        }
+
+        .button {
+            display: inline-block; /* Делаем элемент блочным */
+            padding: 10px 20px; /* Отступы внутри кнопки */
+            font-size: 16px; /* Размер шрифта */
+            color: white; /* Цвет текста */
+            background-color: blue; /* Цвет фона */
+            text-decoration: none; /* Убираем подчеркивание */
+            border-radius: 5px; /* Закругленные углы */
+        }
+    </style>
 </head>
 <body>
-    <div class = personalData>
-      <p>имя : {{data['doctor_name']}}</p>
-      <p>специализация: {{data['specialization']}}</p>
-      <p>департамент: {{data['name_department']}}</p>
+    <div class="personalData">
+        <p>Имя: {{data['doctor_name']}}</p>
+        <p>Специализация: {{data['specialization']}}</p>
+        <p>Департамент: {{data['name_department']}}</p>
+        <a href="/logout" class = "button"> выйти </a>
     </div>
 
     {% if role == 'doctor' %}
-    <div class = Doctor>
-        {% for data in unique_data %}
-        <form action="/cabinet/reception" method="post">
-            <input type = "hidden" name = "time" value = {{data['rec_time']}}>
-            <input type = "hidden" name = "name" value = {{data['name_patient']}}>
-        <button type="submit" class = cell>
-            <p>время: {{data['rec_time']}}</p>
-            <p>Имя пациента: {{data['name_patient']}}</p>
-        </button>
-        </form>
-        {% endfor %}
+    <div class="Doctor">
+        {% if not unique_data %}
+            <h1>На сегодня записей нет</h1>
+        {% else %}
+            {% for data in unique_data %}
+                <form action="/cabinet/reception" method="post">
+                    <input type="hidden" name="time" value="{{data['rec_time']}}">
+                    <input type="hidden" name="name" value="{{data['name_patient']}}">
+                    <input type="hidden" name="id_schedule" value="{{data['id_shedule']}}">
+                    <button type="submit" class="cell">
+                        <p>Время: {{data['rec_time']}}</p>
+                        <p>Имя пациента: {{data['name_patient']}}</p>
+                    </button>
+                </form>
+            {% endfor %}
+        {% endif %}
     </div>
 
     {% elif role == 'supremedoctor' %}
-    <div class = SupremeDoctor>
-
+    <div class="SupremeDoctor">
+        <!-- Контент для главного врача -->
     </div>
     {% elif role == 'admin' %}
-    <div class = Admin>
-
+    <div class="Admin">
+        <!-- Контент для администратора -->
     </div>
     {% elif role == 'register' %}
-    <div class = Register>
-
+    <div class="Register">
+        <a href="/request/findFreeTime" class = "button">Поиск свободного времени</a>
+        <a href="/request/findFloor" class = "button">Поиск этажа</a>
+        <a href="/request/findSpecialization" class = "button">Поиск свободного времени</a>
     </div>
     {% endif %}
 </body>

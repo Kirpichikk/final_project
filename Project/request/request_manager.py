@@ -1,8 +1,5 @@
-from flask import Blueprint, request, render_template, current_app
-from connection import DBConnection
-from sql_provider import SqlProvider
-from access import login_required
-import os
+from flask import Blueprint, request, render_template
+from request.request_model import find_names, find_time, find_floor
 
 request_Blueprint = Blueprint(
     'request_bp',
@@ -10,31 +7,45 @@ request_Blueprint = Blueprint(
     template_folder= 'templates'
 )
 
-provider = SqlProvider(
-    os.path.join(os.path.dirname(__file__), 'sql')
-)
-
-@request_Blueprint.route('/', methods=['GET', 'POST'])
-@login_required
-def init_handler():
+@request_Blueprint.route('/findFreeTime', methods=['GET', 'POST'])
+def time_handler():
     if request.method == 'GET':
-        return render_template('product_form.html')
-    elif request.method == 'POST':
-        name = request.form['product_name']
-        sql = provider.get(
-            'request.sql',
-            {'prod_id': name}
-        )
-
-        with DBConnection(current_app.config['db_config']) as cursor:
-            cursor.execute(sql)
-            schema = [column[0] for column in cursor.description]
-            result = [dict(zip(schema, row)) for row in cursor.fetchall()]
-
-        render_data= {
-            'status': True if result else False,
-            'data': result
-        }
-        return render_template('database_output.html',
-                               render_data=render_data
+        names = find_names()
+        return render_template('form.html',
+                               request = 'time',
+                               names = names
                                )
+    else:
+        result = find_time(
+            request.form.get('names'),
+            request.form.get('date')
+        )
+        print(result)
+        state = False if result is None else True
+
+        return render_template('output.html',
+                               data = result,
+                               boolValue = state,
+                               request='time'
+                               )
+
+@request_Blueprint.route('/findFloor', methods=['GET', 'POST'])
+def floor_handler():
+    if request.method == 'GET':
+        return render_template('form.html', request = 'floor')
+    else:
+        result = find_floor(request.form.get('num'))
+        state = False if result is None else True
+
+        return render_template('output.html',
+                               data=result,
+                               boolValue=state,
+                               request='floor'
+                               )
+
+@request_Blueprint.route('/findSpecialization', methods=['GET', 'POST'])
+def specialization_handler():
+    if request.method == 'GET':
+        return render_template('form.html', request = 'specialization')
+    else:
+        pass

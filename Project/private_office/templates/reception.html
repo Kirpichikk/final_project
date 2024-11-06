@@ -3,8 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <title>Reception</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Цвет фона страницы */
+            display: flex;
+            justify-content: center; /* Центрирование по горизонтали */
+            align-items: center; /* Центрирование по вертикали */
+            height: 100vh; /* Высота на весь экран */
+            margin: 0; /* Убираем отступы */
+        }
+
+        .personalData {
+            display: inline-block; /* Делаем элемент блочным */
+            padding: 10px 20px; /* Отступы внутри блока */
+            font-size: 16px; /* Размер шрифта */
+            color: black; /* Цвет текста */
+            background-color: #66CDAA; /* Цвет фона */
+            text-decoration: none; /* Убираем подчеркивание */
+            border-radius: 5px; /* Скругление углов */
+            margin-bottom: 20px; /* Отступ снизу */
+        }
+
+        .reception {
+            background-color: white; /* Цвет фона формы */
+            padding: 20px; /* Отступы внутри формы */
+            border-radius: 8px; /* Скругление углов формы */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для формы */
+            width: 400px; /* Ширина формы */
+        }
+
+        .reception label {
+            display: block; /* Блочный элемент для меток */
+            margin-bottom: 5px; /* Отступ снизу */
+            color: #333; /* Цвет текста меток */
+        }
+
+        .reception textarea {
+            width: 100%; /* Ширина поля ввода */
+            padding: 10px; /* Отступы внутри поля ввода */
+            margin-bottom: 15px; /* Отступ снизу */
+            border: 1px solid #ccc; /* Цвет границы */
+            border-radius: 4px; /* Скругление углов поля ввода */
+            box-sizing: border-box; /* Учитываем отступы и границы в ширине */
+            transition: border-color 0.3s; /* Плавный переход цвета границы */
+            font-size: 16px; /* Размер шрифта в полях ввода */
+            resize: vertical; /* Позволяет изменять размер только по вертикали */
+            min-height: 80px; /* Минимальная высота текстового поля */
+        }
+
+        .reception textarea:focus {
+            border-color: #66CDAA; /* Цвет границы при фокусе */
+            outline: none; /* Убираем обводку */
+        }
+
+        .reception input[type="submit"] {
+            background-color: #66CDAA; /* Цвет фона кнопки */
+            color: white; /* Цвет текста кнопки */
+            border: none; /* Убираем границу */
+            padding: 10px; /* Отступы внутри кнопки */
+            border-radius: 4px; /* Скругление углов кнопки */
+            cursor: pointer; /* Указатель при наведении */
+            width: 100%; /* Ширина кнопки */
+            font-size: 16px; /* Размер шрифта кнопки */
+            transition: background-color 0.3s; /* Плавный переход цвета фона */
+        }
+
+        .reception input[type="submit"]:hover {
+            background-color: #5a9a8d; /* Цвет фона кнопки при наведении */
+        }
+    </style>
 </head>
 <body>
-{{name}}
+    <div class="personalData">
+        <p>время: {{data['time']}}</p>
+        <p>Имя пациента: {{data['name']}}</p>
+    </div>
+
+    <div class="reception">
+        <form action="" method="post">
+            <label>Диагноз</label>
+            <textarea name="diagnosis" required></textarea>
+            <label>Симптомы</label>
+            <textarea name="complains" required></textarea>
+            <label>Рекомендации</label>
+            <textarea name="appointments" required></textarea>
+            <input type="hidden" name="id_schedule" value="{{data['id_schedule']}}">
+            <input type="submit" value="отправить">
+        </form>
+    </div>
 </body>
 </html>

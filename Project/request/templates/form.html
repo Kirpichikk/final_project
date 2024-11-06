@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Выбор</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Шрифт для всего документа */
+            background-color: #f4f4f4; /* Цвет фона страницы */
+            margin: 0; /* Убираем отступы */
+            padding: 20px; /* Отступы вокруг содержимого */
+        }
+
+        .container {
+            max-width: 600px; /* Максимальная ширина контейнера */
+            margin: auto; /* Центрируем контейнер */
+            background: white; /* Цвет фона контейнера */
+            padding: 20px; /* Отступы внутри контейнера */
+            border-radius: 8px; /* Закругленные углы */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для контейнера */
+        }
+
+        h1 {
+            text-align: center; /* Центрируем заголовок */
+            color: #333; /* Цвет заголовка */
+            margin-bottom: 20px; /* Отступ снизу */
+        }
+
+        h2 {
+            color: #555; /* Цвет заголовка второго уровня */
+            margin-bottom: 10px; /* Отступ снизу */
+        }
+
+        form {
+            display: flex; /* Используем flexbox для выравнивания элементов */
+            flex-direction: column; /* Элементы располагаются в колонку */
+            gap: 15px; /* Промежуток между элементами */
+        }
+
+        select, input[type="date"], input[type="submit"] {
+            padding: 10px; /* Отступы внутри элементов */
+            font-size: 16px; /* Размер шрифта */
+            border: 1px solid #ccc; /* Цвет границы */
+            border-radius: 5px; /* Закругленные углы */
+            outline: none; /* Убираем обводку при фокусе */
+            transition: border-color 0.3s; /* Плавный переход цвета границы */
+        }
+
+        select:focus, input[type="date"]:focus {
+            border-color: blue; /* Цвет границы при фокусе */
+        }
+
+        input[type="submit"] {
+            background-color: blue; /* Цвет фона кнопки */
+            color: white; /* Цвет текста кнопки */
+            cursor: pointer; /* Указатель при наведении */
+            transition: background-color 0.3s, transform 0.2s; /* Плавный переход цвета фона и эффекта нажатия */
+            border: none; /* Убираем границу */
+        }
+
+        input[type="submit"]:hover {
+            background-color: darkblue; /* Цвет фона кнопки при наведении */
+            transform: scale(1.05); /* Увеличение кнопки при наведении */
+        }
+
+        .buttons {
+            display: flex; /* Используем flexbox для выравнивания кнопок */
+            justify-content: center; /* Центрируем кнопки */
+            margin-top: 20px; /* Отступ сверху для блока кнопок */
+        }
+
+        .button-link {
+            display: inline-block; /* Делаем элемент блочным */
+            padding: 10px 20px; /* Отступы внутри кнопки */
+            font-size: 16px; /* Размер шрифта */
+            color: white; /* Цвет текста */
+            background-color: blue; /* Цвет фона */
+            text-decoration: none; /* Убираем подчеркивание */
+            border-radius: 5px; /* Закругленные углы */
+            transition: background-color 0.3s, transform 0.2s; /* Плавный переход цвета фона */
+            margin: 0 10px; /* Отступы между кнопками */
+        }
+
+        .button-link:hover {
+            background-color: darkblue; /* Цвет фона кнопки при наведении */
+            transform: scale(1.05); /* Увеличение кнопки при наведении */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Выбор</h1>
+        {% if request == 'time' %}
+            <div class="time">
+                <form action="" method="post">
+                    <select name="names">
+                        {% for data in names %}
+                        <option value="{{data[0]}}">{{data[1]}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="date" name="date" required>
+                    <input type="submit" value="Отправить">
+                </form>
+            </div>
+
+        {% elif request == 'floor' %}
+            <div class="floor">
+                <h2>Введите кабинет</h2>
+                <form action = "" method="post">
+                    <input type="text" name="num">
+                    <input type="submit" value="Отправить">
+                </form>
+            </div>
+
+        {% elif request == 'specialization' %}
+            <div class="specialization">
+                <!-- Здесь можно добавить содержимое для выбора специализации -->
+            </div>
+
+        {% endif %}
+
+        <div class="buttons">
+            <a class="button-link" href="/cabinet/">Вернуться в личный кабинет</a>
+        </div>
+    </div>
+</body>
+</html>
