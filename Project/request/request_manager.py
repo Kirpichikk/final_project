@@ -1,5 +1,5 @@
 from flask import Blueprint, request, render_template
-from request.request_model import find_names, find_time, find_floor
+from request.request_model import find_names, find_time, find_floor, find_specialization, find_doctors
 
 request_Blueprint = Blueprint(
     'request_bp',
@@ -46,6 +46,16 @@ def floor_handler():
 @request_Blueprint.route('/findSpecialization', methods=['GET', 'POST'])
 def specialization_handler():
     if request.method == 'GET':
-        return render_template('form.html', request = 'specialization')
+        specialization = find_specialization()
+        return render_template('form.html',
+                               request = 'specialization',
+                               names = specialization
+                               )
     else:
-        pass
+        result = find_doctors(request.form.get('names'))
+        state = False if result is None else True
+
+        return render_template('output.html',
+                               data=result,
+                               request='specialization'
+                               )

@@ -96,7 +96,9 @@
 
     {% elif request == 'specialization' %}
       <div class="container specialization">
-
+             {% for i in data %}
+                    <h1>{{i[0]}}</h1>
+              {% endfor %}
         <div class="buttons">
             <a class="button" href="/cabinet/">Вернуться в личный кабинет</a>
             <a class="button" href="/request/findSpecialization">Вернуться к запросу</a>

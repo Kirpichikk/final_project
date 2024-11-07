@@ -114,7 +114,14 @@
 
         {% elif request == 'specialization' %}
             <div class="specialization">
-                <!-- Здесь можно добавить содержимое для выбора специализации -->
+                <form action="" method="post">
+                    <select name="names">
+                        {% for data in names %}
+                        <option value="{{data[0]}}">{{data[0]}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Отправить">
+                </form>
             </div>
 
         {% endif %}

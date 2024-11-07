@@ -1,0 +1,4 @@
+SELECT
+    specialization
+FROM
+    doctor
