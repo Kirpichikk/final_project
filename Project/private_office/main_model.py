@@ -22,14 +22,6 @@ def find_data_in_db(db_config, sql):
             result = [dict(zip(schema, row)) for row in cursor.fetchall()]
             return result
 
-def private_data (id_doctor):
-    sql_statement = provider.get(
-        'information.sql',
-        {'id_doctor': id_doctor}
-    )
-    result = find_data_in_db(current_app.config['db_config'], sql_statement)
-    return result
-
 def shedule(id_doctor):
     sql_statement = provider.get(
         'schedule_for_today.sql',

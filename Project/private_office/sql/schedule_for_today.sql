@@ -1,5 +1,5 @@
 SELECT
-    rec_time, name_patient, id_shedule, shedule.id_visit_card as id_patient
+    rec_time, name_patient, id_shedule
 FROM
     shedule
         JOIN

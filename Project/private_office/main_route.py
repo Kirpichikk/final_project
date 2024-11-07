@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, session, request, redirect, url_for
 
-from private_office.main_model import private_data, shedule, change_app_mark, insert_reception_notes, find_patient
+from private_office.main_model import shedule, change_app_mark, insert_reception_notes, find_patient
 
 privateOffice_Blueprint = Blueprint(
     'privateOffice_bp',
@@ -11,7 +11,7 @@ privateOffice_Blueprint = Blueprint(
 @privateOffice_Blueprint.route('/')
 def main_office_handler():
 
-    info_data = private_data(session['id_inside'])
+    info_data = [session['doctor_name'], session['specialization'], session['name_department']]
     if session['role'] == 'doctor':
         unique_data = shedule(session['id_inside'])
         if unique_data is None:
@@ -21,7 +21,7 @@ def main_office_handler():
         unique_data = None
 
     return render_template('private_office.html',
-                           data = info_data[0],
+                           data = info_data,
                            unique_data = unique_data,
                            role = session['role']
                            )

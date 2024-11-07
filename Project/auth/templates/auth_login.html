@@ -2,23 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>LoginPage</title>
+    <title>Login Page</title>
     <style>
-        body{
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Светло-голубой фон */
+            color: #333;
             text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #00796b; /* Темно-голубой цвет заголовка */
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #ffffff; /* Белый фон для формы */
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            display: inline-block;
+            width: 300px; /* Ширина формы */
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #b2ebf2; /* Светло-голубая рамка */
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #00796b; /* Темно-голубая рамка при фокусе */
+            outline: none; /* Убираем стандартный контур */
+        }
+
+        input[type="submit"] {
+            background-color: #00796b; /* Темно-голубой фон кнопки */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #004d40; /* Темно-зеленый фон при наведении */
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
     <h1>АВТОРИЗАЦИЯ</h1>
     {% if wrong %}
-    <p style = "color: red">неверно введён пароль или логин</p>
+    <p class="error-message">Неверно введён пароль или логин</p>
     {% endif %}
 
-  <form action="" method="post">
-    <input type="text" name="login" placeholder="Login"><br>
-    <input type = "password" name = "password" placeholder="password"><br>
-    <input type = "submit" value="Отправить">
-  </form>
+    <form action="" method="post">
+        <input type="text" name="login" placeholder="Логин" required><br>
+        <input type="password" name="password" placeholder="Пароль" required><br>
+        <input type="submit" value="Отправить">
+    </form>
 </body>
 </html>

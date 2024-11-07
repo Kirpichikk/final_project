@@ -23,7 +23,7 @@ def logout_handler():
 @application.route('/')
 @login_required
 def init_handler():
-    return redirect(url_for('auth_bp.login_handler'))
+    return redirect(url_for('privateOffice_bp.main_office_handler'))
 
 if __name__ == '__main__':
     application.run(host='127.0.0.1', port=5000)

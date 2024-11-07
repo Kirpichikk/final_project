@@ -1,7 +1,15 @@
 SELECT
     role,
-    id_inside
-from users
-where
+    id_inside,
+    doctor_name,
+    specialization,
+    name_department
+FROM
+    users
+        JOIN
+    doctor ON id_inside = id_doctor
+        JOIN
+    department ON doctor.id_department = department.id_department
+WHERE
     login = '$login'
-    and password = '$password'
+        AND password = '$password'

@@ -1,4 +1,6 @@
 from flask import Blueprint, request, render_template
+
+from access import role_required
 from request.request_model import find_names, find_time, find_floor, find_specialization, find_doctors
 
 request_Blueprint = Blueprint(
@@ -8,6 +10,7 @@ request_Blueprint = Blueprint(
 )
 
 @request_Blueprint.route('/findFreeTime', methods=['GET', 'POST'])
+@role_required
 def time_handler():
     if request.method == 'GET':
         names = find_names()
@@ -30,6 +33,7 @@ def time_handler():
                                )
 
 @request_Blueprint.route('/findFloor', methods=['GET', 'POST'])
+@role_required
 def floor_handler():
     if request.method == 'GET':
         return render_template('form.html', request = 'floor')
@@ -44,6 +48,7 @@ def floor_handler():
                                )
 
 @request_Blueprint.route('/findSpecialization', methods=['GET', 'POST'])
+@role_required
 def specialization_handler():
     if request.method == 'GET':
         specialization = find_specialization()
@@ -53,7 +58,6 @@ def specialization_handler():
                                )
     else:
         result = find_doctors(request.form.get('names'))
-        state = False if result is None else True
 
         return render_template('output.html',
                                data=result,
