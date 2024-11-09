@@ -1,7 +1,7 @@
 from datetime import datetime
 from connection import DBConnection
 from sql_provider import SqlProvider
-from flask import current_app, session
+from flask import current_app
 import os
 
 provider = SqlProvider(
