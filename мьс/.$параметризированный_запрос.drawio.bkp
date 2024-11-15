@@ -1,0 +1,542 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="Страница — 1" id="UTkJiOwMuul65eg08QEO">
+    <mxGraphModel dx="1290" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BES9ltnSlYylI2_LdMqL-1" value="viewer" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="80" width="200" height="1970" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-2" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="60" as="sourcePoint" />
+            <mxPoint x="200" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-3" value="пользователь входит в личный кабинет" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-2">
+          <mxGeometry x="-0.1018" y="-1" relative="1" as="geometry">
+            <mxPoint x="11" y="-21" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-44" value="страница для выбора запроса" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-1">
+          <mxGeometry x="30" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-83" value="страница для выборов параметров" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-1">
+          <mxGeometry x="30" y="530" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-102" value="страница с результатом" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-1">
+          <mxGeometry x="30" y="820" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-150" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="242" y="1009" as="sourcePoint" />
+            <mxPoint x="162" y="1009" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-151" value="переадресация" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-150">
+          <mxGeometry x="-0.07" y="1" relative="1" as="geometry">
+            <mxPoint x="7" y="-21" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-152" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.011;exitY=0.884;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-1" source="BES9ltnSlYylI2_LdMqL-136">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="312" y="999" as="sourcePoint" />
+            <mxPoint x="250" y="1076" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-153" value="данные для запроса" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-152">
+          <mxGeometry x="0.2178" y="-2" relative="1" as="geometry">
+            <mxPoint x="4" y="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-136" value="страница для выборов параметров" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-1">
+          <mxGeometry x="52" y="979" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-8" value="controller" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="80" width="160" height="1970" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-9" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="60" as="sourcePoint" />
+            <mxPoint x="190" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-10" value="private_data()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-9">
+          <mxGeometry x="-0.5156" y="3" relative="1" as="geometry">
+            <mxPoint y="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-49" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="350" as="sourcePoint" />
+            <mxPoint x="190" y="350" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="170" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-50" value="find_names()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-49">
+          <mxGeometry x="-0.0489" y="4" relative="1" as="geometry">
+            <mxPoint x="-3" y="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-13" value="model" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="80" width="231" height="1970" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-14" value="sql_provider" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="30" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-15" value="__enter__&lt;br&gt;DBconnection" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="30" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-16" value="db_config&amp;nbsp;&lt;br&gt;sql_statment" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="50" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-17" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="89.5" y="200" as="sourcePoint" />
+            <mxPoint x="89.5" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-18" value="doctor_name&lt;br&gt;specialization&lt;br&gt;name_department" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="30" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-71" value="sql_provider" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="30" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-72" value="__enter__&lt;br&gt;DBconnection" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="30" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-73" value="db_config&amp;nbsp;&lt;br&gt;sql_script" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="50" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-74" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="89.5" y="480" as="sourcePoint" />
+            <mxPoint x="89.5" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-75" value="result" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="30" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-76" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13" source="BES9ltnSlYylI2_LdMqL-71">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="490" as="sourcePoint" />
+            <mxPoint x="90" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-77" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="449.5" as="sourcePoint" />
+            <mxPoint x="260" y="449.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-78" value="подключение к бд" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-77">
+          <mxGeometry x="0.145" y="3" relative="1" as="geometry">
+            <mxPoint x="-13" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-79" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13" source="BES9ltnSlYylI2_LdMqL-75">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-70" y="550" as="sourcePoint" />
+            <mxPoint x="-50" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-85" value="names" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-79">
+          <mxGeometry x="0.055" y="-1" relative="1" as="geometry">
+            <mxPoint y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-154" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-35" y="1080" as="sourcePoint" />
+            <mxPoint x="55" y="1080" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-155" value="find_floor()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-154">
+          <mxGeometry x="-0.5156" y="3" relative="1" as="geometry">
+            <mxPoint y="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-156" value="sql_provider" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="55" y="1060" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-157" value="__enter__&lt;br&gt;DBconnection" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="55" y="1160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-158" value="db_config&amp;nbsp;&lt;br&gt;sql_statment" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="75" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-159" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="114.5" y="1220" as="sourcePoint" />
+            <mxPoint x="114.5" y="1270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-160" value="floor" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="55" y="1270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-161" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13" source="BES9ltnSlYylI2_LdMqL-156">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="155" y="1230" as="sourcePoint" />
+            <mxPoint x="115" y="1160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-162" value="подключение к бд" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="225" y="1179.5" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-163" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13" source="BES9ltnSlYylI2_LdMqL-160">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-45" y="1290" as="sourcePoint" />
+            <mxPoint x="-25" y="1300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-164" value="сохрание данных в &lt;br&gt;переменную &lt;br&gt;result" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-163">
+          <mxGeometry x="0.23" y="4" relative="1" as="geometry">
+            <mxPoint x="-11" y="-34" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-165" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-120" y="1300" as="sourcePoint" />
+            <mxPoint x="-190" y="1300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-137" value="страница с результатом" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="-310" y="1270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-200" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="175" y="1189.5" as="sourcePoint" />
+            <mxPoint x="285" y="1189.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-201" value="подключение к бд" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-200">
+          <mxGeometry x="0.145" y="3" relative="1" as="geometry">
+            <mxPoint x="-13" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-196" value="sql_provider" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="53.5" y="1370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-166" value="страница для выборов параметров" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="-304" y="1580" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-167" value="страница с результатом" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="-304" y="1870" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-168" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-34" y="1400" as="sourcePoint" />
+            <mxPoint x="56" y="1400" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="36" y="1400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-169" value="find_specialization()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-168">
+          <mxGeometry x="-0.0489" y="4" relative="1" as="geometry">
+            <mxPoint x="-3" y="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-170" value="__enter__&lt;br&gt;DBconnection" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="56" y="1470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-171" value="db_config&amp;nbsp;&lt;br&gt;sql_script" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="76" y="1450" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-172" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="115.5" y="1530" as="sourcePoint" />
+            <mxPoint x="115.5" y="1580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-173" value="все возможные специализации" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="56" y="1580" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-174" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="116" y="1430" as="sourcePoint" />
+            <mxPoint x="116" y="1470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-175" value="подключение к бд" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="226" y="1489.5" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-176" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13" source="BES9ltnSlYylI2_LdMqL-173">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-44" y="1600" as="sourcePoint" />
+            <mxPoint x="-24" y="1610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-177" value="specialization" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-176">
+          <mxGeometry x="0.055" y="-1" relative="1" as="geometry">
+            <mxPoint y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-180" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-114" y="1610" as="sourcePoint" />
+            <mxPoint x="-194" y="1610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-181" value="переадресация" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-180">
+          <mxGeometry x="-0.07" y="1" relative="1" as="geometry">
+            <mxPoint x="7" y="-21" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-182" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.011;exitY=0.884;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13" source="BES9ltnSlYylI2_LdMqL-166">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-44" y="1600" as="sourcePoint" />
+            <mxPoint x="-94" y="1680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-183" value="данные для запроса" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-182">
+          <mxGeometry x="0.2178" y="-2" relative="1" as="geometry">
+            <mxPoint x="5" y="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-184" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-29" y="1680" as="sourcePoint" />
+            <mxPoint x="61" y="1680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-185" value="find_doctors()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-184">
+          <mxGeometry x="-0.5156" y="3" relative="1" as="geometry">
+            <mxPoint y="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-186" value="sql_provider" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="61" y="1660" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-187" value="__enter__&lt;br&gt;DBconnection" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="61" y="1760" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-188" value="db_config&amp;nbsp;&lt;br&gt;sql_statment" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="81" y="1740" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-189" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120.5" y="1820" as="sourcePoint" />
+            <mxPoint x="120.5" y="1870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-190" value="все возможные доктора" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="61" y="1870" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-191" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13" source="BES9ltnSlYylI2_LdMqL-186">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="161" y="1830" as="sourcePoint" />
+            <mxPoint x="121" y="1760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-192" value="подключение к бд" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry x="231" y="1779.5" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-193" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13" source="BES9ltnSlYylI2_LdMqL-190">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-39" y="1890" as="sourcePoint" />
+            <mxPoint x="-19" y="1900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-194" value="сохрание данных в &lt;br&gt;переменную &lt;br&gt;result" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-193">
+          <mxGeometry x="0.23" y="4" relative="1" as="geometry">
+            <mxPoint x="-11" y="-34" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-195" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-114" y="1900" as="sourcePoint" />
+            <mxPoint x="-184" y="1900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-202" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="180.5" y="1789.5" as="sourcePoint" />
+            <mxPoint x="290.5" y="1789.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-203" value="подключение к бд" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-202">
+          <mxGeometry x="0.145" y="3" relative="1" as="geometry">
+            <mxPoint x="-13" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-204" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="173.5" y="1499.5" as="sourcePoint" />
+            <mxPoint x="283.5" y="1499.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-205" value="подключение к бд" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-204">
+          <mxGeometry x="0.145" y="3" relative="1" as="geometry">
+            <mxPoint x="-13" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-178" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="BES9ltnSlYylI2_LdMqL-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-384" y="1400" as="sourcePoint" />
+            <mxPoint x="-94" y="1400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-179" value="переход на findSpecialization" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-178">
+          <mxGeometry x="-0.2841" y="2" relative="1" as="geometry">
+            <mxPoint x="26" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-30" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="BES9ltnSlYylI2_LdMqL-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="290" as="sourcePoint" />
+            <mxPoint x="550" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-31" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="610" y="249.5" as="sourcePoint" />
+            <mxPoint x="720" y="249.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-32" value="подключение к бд" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-31">
+          <mxGeometry x="0.145" y="3" relative="1" as="geometry">
+            <mxPoint x="-13" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-33" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="BES9ltnSlYylI2_LdMqL-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="350" as="sourcePoint" />
+            <mxPoint x="410" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-34" value="сохрание данных в &lt;br&gt;переменную &lt;br&gt;info_data" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-33">
+          <mxGeometry x="0.23" y="4" relative="1" as="geometry">
+            <mxPoint x="-11" y="-34" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-43" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="360" as="sourcePoint" />
+            <mxPoint x="250" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-45" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="BES9ltnSlYylI2_LdMqL-44">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="430" as="sourcePoint" />
+            <mxPoint x="50" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-46" value="переадресация на &lt;br&gt;выбранный запрос" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-45">
+          <mxGeometry x="0.405" y="2" relative="1" as="geometry">
+            <mxPoint x="-4" y="-32" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-47" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="50" y="430" as="sourcePoint" />
+            <mxPoint x="340" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-48" value="переход на findFreeTime" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-47">
+          <mxGeometry x="-0.2841" y="2" relative="1" as="geometry">
+            <mxPoint x="26" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-81" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="640" as="sourcePoint" />
+            <mxPoint x="240" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-84" value="переадресация" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-81">
+          <mxGeometry x="-0.07" y="1" relative="1" as="geometry">
+            <mxPoint x="7" y="-21" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-86" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.011;exitY=0.884;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="BES9ltnSlYylI2_LdMqL-83">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="630" as="sourcePoint" />
+            <mxPoint x="340" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-87" value="данные для запроса" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-86">
+          <mxGeometry x="0.2178" y="-2" relative="1" as="geometry">
+            <mxPoint x="5" y="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-89" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="405" y="710" as="sourcePoint" />
+            <mxPoint x="495" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-90" value="find_time()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-89">
+          <mxGeometry x="-0.5156" y="3" relative="1" as="geometry">
+            <mxPoint y="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-91" value="sql_provider" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="690" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-92" value="__enter__&lt;br&gt;DBconnection" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="790" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-93" value="db_config&amp;nbsp;&lt;br&gt;sql_statment" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="515" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-94" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="554.5" y="850" as="sourcePoint" />
+            <mxPoint x="554.5" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-95" value="все допустимые временные отрезки" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="900" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-96" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="BES9ltnSlYylI2_LdMqL-91">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="595" y="860" as="sourcePoint" />
+            <mxPoint x="555" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-97" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="615" y="819.5" as="sourcePoint" />
+            <mxPoint x="725" y="819.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-98" value="подключение к бд" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-97">
+          <mxGeometry x="0.145" y="3" relative="1" as="geometry">
+            <mxPoint x="-13" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-99" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="BES9ltnSlYylI2_LdMqL-95">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="395" y="920" as="sourcePoint" />
+            <mxPoint x="415" y="930" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-100" value="сохрание данных в &lt;br&gt;переменную &lt;br&gt;result" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-99">
+          <mxGeometry x="0.23" y="4" relative="1" as="geometry">
+            <mxPoint x="-11" y="-34" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-101" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="930" as="sourcePoint" />
+            <mxPoint x="250" y="930" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-148" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="72" y="1010" as="sourcePoint" />
+            <mxPoint x="362" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BES9ltnSlYylI2_LdMqL-149" value="переход на findFloor" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="BES9ltnSlYylI2_LdMqL-148">
+          <mxGeometry x="-0.2841" y="2" relative="1" as="geometry">
+            <mxPoint x="26" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

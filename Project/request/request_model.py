@@ -2,6 +2,7 @@ import os
 from flask import current_app
 from connection import DBConnection
 from sql_provider import SqlProvider
+from datetime import datetime
 
 provider = SqlProvider(
     os.path.join(os.path.dirname(__file__), 'sql')
@@ -26,6 +27,14 @@ def find_data_in_db(db_config, sql):
                 return None
             else:
                 return result
+
+def filter_date():
+    with open('request/sql/find_max_date.sql', 'r') as file:
+        sql_script = file.read()
+    result = find_data_in_db(current_app.config['db_config'], sql_script)
+    max_date = result[0]
+    min_date = datetime.now().date().isoformat()
+    return max_date, min_date
 
 def find_names():
     with open('request/sql/find_names.sql', 'r') as file:

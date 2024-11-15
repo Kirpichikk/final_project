@@ -26,7 +26,6 @@ def login_handler():
             session['doctor_name'] = user['doctor_name']
             session['specialization'] = user['specialization']
             session['name_department'] = user['name_department']
-            print(session)
             session.permanent = True
             return redirect(url_for('privateOffice_bp.main_office_handler'))
 

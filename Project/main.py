@@ -6,7 +6,7 @@ from auth.route import auth_Blueprint
 
 application=Flask(__name__) #создание точки входа __name__-ссылка на имя файла
 
-with open("db_config.json") as f:
+with open("db_config1.json") as f:
     application.config['db_config']= json.load(f)
 
 application.secret_key = "my_secret_key"

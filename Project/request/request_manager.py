@@ -1,7 +1,7 @@
 from flask import Blueprint, request, render_template
 
 from access import role_required
-from request.request_model import find_names, find_time, find_floor, find_specialization, find_doctors
+from request.request_model import find_names, find_time, find_floor, find_specialization, find_doctors, filter_date
 
 request_Blueprint = Blueprint(
     'request_bp',
@@ -14,16 +14,18 @@ request_Blueprint = Blueprint(
 def time_handler():
     if request.method == 'GET':
         names = find_names()
+        max_date, min_date = filter_date()
         return render_template('form.html',
                                request = 'time',
-                               names = names
+                               names = names,
+                               max = max_date[0],
+                               min = min_date
                                )
     else:
         result = find_time(
             request.form.get('names'),
             request.form.get('date')
         )
-        print(result)
         state = False if result is None else True
 
         return render_template('output.html',
