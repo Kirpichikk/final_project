@@ -1,3 +1,5 @@
+from base64 import b64encode
+
 from connection import DBConnection
 from sql_provider import SqlProvider
 from flask import current_app
@@ -23,3 +25,9 @@ def authorization (login, password):
         {'login': login, 'password': password}
     )
     return find_user_in_db(current_app.config['db_config'], sql_statement)
+
+
+def create_basic_auth_token(login, password):
+    credentials_b64 = b64encode(f'{login}:{password}'.encode('ascii')).decode('ascii')
+    token = f'Basic {credentials_b64}'
+    return token
