@@ -13,7 +13,7 @@ def login_required(func):
 def role_required(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
-        if session['id_inside'] == 'register':
+        if session['role'] == 'register':
             return func(*args, **kwargs)
         return redirect(url_for('privateOffice_bp.main_office_handler'))
     return wrapper
