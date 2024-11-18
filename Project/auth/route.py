@@ -27,7 +27,8 @@ def login_handler():
 
             resp_json = response.json()
             if resp_json['status'] == 200:
-                session['id_inside'] = resp_json['user']
+                id_user =  resp_json['user']
+                session['id_inside'] = id_user['id_inside']
                 session.permanent = True
                 return redirect(url_for('patient_bp.main_office_handler'))
         else:
