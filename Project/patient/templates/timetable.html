@@ -70,6 +70,7 @@
             margin-right: 10px;
             transition: background-color 0.3s, transform 0.2s; /* Плавный переход */
             font-size: 1em;
+            display: inline-block; /* Отображение кнопки как блочного элемента */
         }
 
         button:hover {
@@ -79,6 +80,20 @@
 
         button:active {
             transform: translateY(0); /* Возврат кнопки на место при нажатии */
+        }
+
+        .back-link {
+            display: block; /* Блочный элемент */
+            text-align: center; /* Центрирование текста */
+            margin-top: 20px; /* Отступ сверху */
+            color: #005f00; /* Темно-зеленый цвет ссылки */
+            text-decoration: none; /* Без подчеркивания */
+            font-weight: bold; /* Жирный текст */
+            transition: color 0.3s; /* Плавный переход цвета */
+        }
+
+        .back-link:hover {
+            color: #003d00; /* Темнее при наведении */
         }
     </style>
 </head>
@@ -91,22 +106,26 @@
             {% for doc in doctors %}
                 <div class="doctor">
                     <h2>{{doc}}</h2>
+                    {% if timetable[doc] == {} %}
+                        <p>нет свободного времени</p>
+                    {% else %}
                     <p>Доступные даты:</p>
-                    {% for data in timetable[doc] %}
-                    <div class="time-slot">
-                        <span>{{data.strftime('%A, %d %B %Y')}}:</span>
-                        {% for time in timetable[doc][data] %}
-                            <input type="hidden" name="id_shedule" value="{{time[1]}}">
-                            <button type="submit">
-                                {{ '%02d:%02d' | format((time[0].total_seconds() // 3600) | int, (((time[0].total_seconds() // 60) % 60) | int)) }}
-                            </button>
+                        {% for data in timetable[doc] %}
+                        <div class="time-slot">
+                            <span>{{data.strftime('%A, %d %B %Y')}}:</span>
+                            {% for time in timetable[doc][data] %}
+                                <input type="hidden" name="id_shedule" value="{{time[1]}}">
+                                <button type="submit">
+                                    {{ '%02d:%02d' | format((time[0].total_seconds() // 3600) | int, (((time[0].total_seconds() // 60) % 60) | int)) }}
+                                </button>
+                            {% endfor %}
+                        </div>
                         {% endfor %}
-                    </div>
-                    {% endfor %}
+                    {% endif %}
                 </div>
             {% endfor %}
         </form>
+        <a href="/patient_office/specialization" class="back-link">Вернуться обратно</a>
     </div>
-    <a href="/patient_office/specialization"> вернуться обратно</a>
 </body>
 </html>

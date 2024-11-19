@@ -1,12 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подтверждение записи</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4; /* Светлый фон */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Центрирование содержимого */
+            justify-content: center; /* Центрирование по вертикали */
+            height: 100vh; /* Высота вьюпорта */
+        }
+
+        h1 {
+            color: #388E3C; /* Темно-зеленый цвет заголовка */
+            margin-bottom: 20px; /* Отступ снизу заголовка */
+            font-size: 2em; /* Размер шрифта заголовка */
+            text-align: center; /* Центрирование текста */
+        }
+
+        a {
+            display: inline-block; /* Отображение ссылки как блочного элемента */
+            margin: 10px 0; /* Отступы сверху и снизу */
+            padding: 10px 20px; /* Отступы внутри ссылки */
+            background-color: #4CAF50; /* Зеленый фон для кнопок */
+            color: white; /* Белый текст */
+            text-decoration: none; /* Без подчеркивания */
+            border-radius: 5px; /* Закругленные углы */
+            transition: background-color 0.3s, transform 0.2s; /* Плавный переход */
+        }
+
+        a:hover {
+            background-color: #45a049; /* Темнее при наведении */
+            transform: translateY(-2px); /* Легкий подъем ссылки */
+        }
+    </style>
 </head>
 <body>
-<h1>вы удачно записались</h1>
-<a href="/patient_office/specialization">ещё записаться</a>
-<a href="/patient_office/">вернуться в личнй кабинет</a>
+
+    <h1>Вы удачно записались!</h1>
+    <a href="/patient_office/specialization">Ещё записаться</a>
+    <a href="/patient_office/">Вернуться в личный кабинет</a>
+
 </body>
 </html>

@@ -83,18 +83,20 @@ def find_timetable(list_doctor):
         )
         time = find_in_db(current_app.config['db_config'], sql_statement)
         if time is None:
-            break
+            result[id[1]] = None
         else:
             result[id[1]] = time
+
 
     sorted_result = {}
     for i in result:
         sorted_result[i] = {}
-        for j in result[i]:
-            if j[0] not in sorted_result[i]:
-                sorted_result[i][j[0]] = [j[1:]]
-            else:
-                sorted_result[i][j[0]].append(j[1:])
+        if result[i] != None:
+            for j in result[i]:
+                if j[0] not in sorted_result[i]:
+                    sorted_result[i][j[0]] = [j[1:]]
+                else:
+                    sorted_result[i][j[0]].append(j[1:])
 
     for i in sorted_result:
         for j in sorted_result[i]:

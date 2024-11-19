@@ -1,0 +1,21 @@
+{% extends 'private_office.html' %}
+
+{% block index %}
+  <div class="Doctor">
+          {% if not unique_data %}
+              <h1>На сегодня записей нет</h1>
+          {% else %}
+              {% for data in unique_data %}
+                  <form action="/reception" method="post">
+                      <input type="hidden" name="time" value="{{data['rec_time']}}">
+                      <input type="hidden" name="name" value="{{data['name_patient']}}">
+                      <input type="hidden" name="id_schedule" value="{{data['id_shedule']}}">
+                      <button type="submit" class="cell">
+                          <p>Время: {{data['rec_time']}}</p>
+                          <p>Имя пациента: {{data['name_patient']}}</p>
+                      </button>
+                  </form>
+              {% endfor %}
+          {% endif %}
+  </div>
+{% endblock %}

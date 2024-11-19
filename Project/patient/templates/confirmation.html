@@ -66,6 +66,11 @@
             width: 100%;
             margin-top: 10px; /* Отступ сверху для кнопок */
         }
+
+        .button-container form {
+            flex: 1; /* Кнопки занимают равное пространство */
+            margin: 0 5px; /* Отступ между формами */
+        }
     </style>
 </head>
 <body>
@@ -77,21 +82,19 @@
     <p>Кабинет: {{data['office']}}</p>
     <p>Врач: {{data['doctor_name']}}</p>
     <p>Специализация: {{data['specialization']}}</p>
-
-    <form action="" method="post">
-        <p>Верны ли все записи?</p>
-        <input type="hidden" name="confim" value="True">
-        <input type="hidden" name="id" value="{{data['id_shedule']}}">
-
-        <div class="button-container">
+        <form action="" method="post">
+    <p>Верны ли все записи?</p>
+        </form>
+    <div class="button-container">
+        <form action="" method="post">
+            <input type="hidden" name="confim" value="True">
+            <input type="hidden" name="id" value="{{data['id_shedule']}}">
             <input type="submit" value="Да">
-        </div>
-    </form>
-    <form action="/patient_office/doctor_date" method="post">
-        <input type="hidden" name="specialization" value="{{data['specialization']}}">
-        <div class="button-container">
-            <input type="submit" value="Нет">
-        </div>
-    </form>
+        </form>
+        <form action="/patient_office/doctor_date" method="post">
+            <input type="hidden" name="specialization" value="{{data['specialization']}}">
+ <input type="submit" value="Нет">
+        </form>
+    </div>
 </body>
 </html>

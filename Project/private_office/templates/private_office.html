@@ -78,27 +78,9 @@
         <p>Департамент: {{data[2]}}</p>
         <a href="/logout" class = "button"> выйти </a>
     </div>
+    {% block index %} {% endblock %}
 
-    {% if role == 'doctor' %}
-    <div class="Doctor">
-        {% if not unique_data %}
-            <h1>На сегодня записей нет</h1>
-        {% else %}
-            {% for data in unique_data %}
-                <form action="/cabinet/reception" method="post">
-                    <input type="hidden" name="time" value="{{data['rec_time']}}">
-                    <input type="hidden" name="name" value="{{data['name_patient']}}">
-                    <input type="hidden" name="id_schedule" value="{{data['id_shedule']}}">
-                    <button type="submit" class="cell">
-                        <p>Время: {{data['rec_time']}}</p>
-                        <p>Имя пациента: {{data['name_patient']}}</p>
-                    </button>
-                </form>
-            {% endfor %}
-        {% endif %}
-    </div>
-
-    {% elif role == 'supremedoctor' %}
+    {% if role == 'supremedoctor' %}
     <div class="SupremeDoctor">
         <!-- Контент для главного врача -->
     </div>
@@ -106,12 +88,7 @@
     <div class="Admin">
         <!-- Контент для администратора -->
     </div>
-    {% elif role == 'register' %}
-    <div class="Register">
-        <a href="/request/findFreeTime" class = "button">Поиск свободного времени</a>
-        <a href="/request/findFloor" class = "button">Поиск этажа</a>
-        <a href="/request/findSpecialization" class = "button">Поиск врача по специализации</a>
-    </div>
+
     {% endif %}
 </body>
 </html>

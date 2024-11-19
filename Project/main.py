@@ -1,5 +1,6 @@
 from flask import Flask, session, json, url_for, redirect
 
+from doctor.route import doctor_Blueprint
 from patient.patient_route import patient_Blueprint
 from private_office.main_route import privateOffice_Blueprint
 from request.request_manager import request_Blueprint
@@ -16,6 +17,7 @@ application.register_blueprint(auth_Blueprint, url_prefix = '/auth')
 application.register_blueprint(request_Blueprint, url_prefix = '/request')
 application.register_blueprint(privateOffice_Blueprint, url_prefix = '/cabinet')
 application.register_blueprint(patient_Blueprint, url_prefix = '/patient_office')
+application.register_blueprint(doctor_Blueprint, url_prefix = '/reception')
 
 
 @application.route('/logout')

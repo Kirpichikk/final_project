@@ -1,5 +1,5 @@
 import requests
-from flask import Blueprint, request, render_template, session, redirect, url_for
+from flask import Blueprint, request, render_template, session, redirect, url_for, current_app
 from auth.model import authorization, create_basic_auth_token
 
 auth_Blueprint = Blueprint(
@@ -29,12 +29,13 @@ def login_handler():
             if resp_json['status'] == 200:
                 id_user =  resp_json['user']
                 session['id_inside'] = id_user['id_inside']
+                current_app.config['db_config']['user'] = "patient"
+                current_app.config['db_config']['password'] = id_user['db_config']
                 session.permanent = True
                 return redirect(url_for('patient_bp.main_office_handler'))
         else:
             # find internal user
             user = authorization(login, password)
-            print(user)
             if user:
                 session['role'] = user['role']
                 session['id_inside'] = user['id_inside']

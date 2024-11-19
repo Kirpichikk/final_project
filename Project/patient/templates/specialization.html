@@ -6,7 +6,7 @@
     <title>Doctor Specializations</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f8f0; /* Светлый фон */
             color: #333; /* Темный текст */
             display: flex;
@@ -18,20 +18,27 @@
 
         form {
             background-color: #ffffff; /* Белый фон для формы */
-            padding: 20px;
+            padding: 30px;
             border-radius: 8px; /* Закругленные углы */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Более выраженная тень */
             text-align: center; /* Центрирование текста */
             display: flex;
             flex-direction: column; /* Вертикальное расположение кнопок */
             align-items: center; /* Центрирование кнопок */
+            width: 90%; /* Ширина формы */
+            max-width: 400px; /* Максимальная ширина формы */
+        }
+
+        h1 {
+            margin-bottom: 20px; /* Отступ снизу заголовка */
+            color: #388E3C; /* Темно-зеленый цвет заголовка */
         }
 
         input[type="submit"] {
             background-color: #4CAF50; /* Зеленый цвет кнопки */
             color: white; /* Белый текст */
             border: none; /* Без границы */
-            padding: 10px 20px; /* Отступы */
+            padding: 12px 24px; /* Отступы */
             text-align: center; /* Центрирование текста */
             text-decoration: none; /* Без подчеркивания */
             display: block; /* Блочный элемент */
@@ -39,7 +46,7 @@
             margin: 10px 0; /* Отступы между кнопками */
             border-radius: 5px; /* Закругленные углы */
             cursor: pointer; /* Указатель при наведении */
-            transition: background-color 0.3s; /* Плавный переход цвета */
+            transition: background-color 0.3s, transform 0.2s; /* Плавный переход цвета и эффекта масштабирования */
             width: 100%; /* Ширина кнопки на всю ширину формы */
             max-width: 300px; /* Максимальная ширина кнопки */
         }
@@ -47,16 +54,38 @@
         input[type="submit"]:hover {
             background-color: #45a049; /* Темнее при наведении */
         }
+
+        .back-button {
+            background-color: #4CAF50; /* Зеленый цвет кнопки "Вернуться" */
+            color: white; /* Белый текст */
+            border: none; /* Без границы */
+            padding: 12px 24px; /* Отступы */
+            text-align: center; /* Центрирование текста */
+            text-decoration: none; /* Без подчеркивания */
+            display: block; /* Блочный элемент */
+            font-size: 16px; /* Размер шрифта */
+            margin-top: 20px; /* Отступ сверху для кнопки "Вернуться" */
+            border-radius: 5px; /* Закругленные углы */
+            cursor: pointer; /* Указатель при наведении */
+            transition: background-color 0.3s, transform 0.2s; /* Плавный переход цвета и эффекта масштабирования */
+            width: 100%; /* Ширина кнопки на всю ширину */
+            max-width: 300px; /* Максимальная ширина кнопки */
+        }
+
+        .back-button:hover {
+            background-color: #45a049; /* Темнее при наведении */
+        }
     </style>
 </head>
 <body>
 
     <form action="/patient_office/doctor_date" method="post">
+        <h1>Выберите специализацию</h1>
         {% for i in data %}
             <input type="submit" name="specialization" value="{{ i[0] }}">
         {% endfor %}
+        <button type="submit" class="back-button" formaction="/patient_office">Вернуться обратно</button>
     </form>
-    <a href="/patient_office"> вернуться обратно</a>
 
 </body>
 </html>
