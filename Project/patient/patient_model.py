@@ -8,6 +8,11 @@ provider = SqlProvider(
     os.path.join(os.path.dirname(__file__), 'sql')
 )
 
+def update_data_in_db(db_config, sql):
+    with DBConnection(db_config) as cursor:
+        if cursor.execute(sql) is None:
+            return None
+
 def find_data_in_db(db_config, sql):
     with DBConnection(db_config) as cursor:
         if cursor.execute(sql) is None:
@@ -77,8 +82,10 @@ def find_timetable(list_doctor):
             }
         )
         time = find_in_db(current_app.config['db_config'], sql_statement)
-        result[id[1]] = time
-        print (result)
+        if time is None:
+            break
+        else:
+            result[id[1]] = time
 
     sorted_result = {}
     for i in result:
@@ -92,8 +99,29 @@ def find_timetable(list_doctor):
     for i in sorted_result:
         for j in sorted_result[i]:
             sorted_items = sorted_result[i][j]
-            print(sorted_items)
             sorted_result[i][j] = sorted(sorted_items, key = lambda x: x[0])
-
+        sorted_keys = sorted_result[i]
+        sorted_result[i] = dict(sorted(sorted_keys.items()))
+    sorted_result = dict(sorted(sorted_result.items()))
 
     return sorted_result
+
+def checking_data(id_shedule):
+    sql_statement = provider.get(
+        'information_for_conf.sql',
+        {
+            'id': id_shedule
+        }
+    )
+    result = find_data_in_db(current_app.config['db_config'], sql_statement)
+    return result
+
+def change_shedule(*data):
+    sql_statement = provider.get(
+        'change_shedule.sql',
+        {
+            'id_patient': data[0],
+            'id_schedule': data[1]
+        }
+    )
+    update_data_in_db(current_app.config['db_config'], sql_statement)

@@ -2,15 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Specializations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8f0; /* Светлый фон */
+            color: #333; /* Темный текст */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Высота экрана */
+            margin: 0;
+        }
+
+        form {
+            background-color: #ffffff; /* Белый фон для формы */
+            padding: 20px;
+            border-radius: 8px; /* Закругленные углы */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+            text-align: center; /* Центрирование текста */
+            display: flex;
+            flex-direction: column; /* Вертикальное расположение кнопок */
+            align-items: center; /* Центрирование кнопок */
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50; /* Зеленый цвет кнопки */
+            color: white; /* Белый текст */
+            border: none; /* Без границы */
+            padding: 10px 20px; /* Отступы */
+            text-align: center; /* Центрирование текста */
+            text-decoration: none; /* Без подчеркивания */
+            display: block; /* Блочный элемент */
+            font-size: 16px; /* Размер шрифта */
+            margin: 10px 0; /* Отступы между кнопками */
+            border-radius: 5px; /* Закругленные углы */
+            cursor: pointer; /* Указатель при наведении */
+            transition: background-color 0.3s; /* Плавный переход цвета */
+            width: 100%; /* Ширина кнопки на всю ширину формы */
+            max-width: 300px; /* Максимальная ширина кнопки */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Темнее при наведении */
+        }
+    </style>
 </head>
 <body>
 
-        <form action = "/patient_office/doctor_date" method="post">
-            {% for i in data %}
-            <input type = "submit" name = "specialization" value = "{{i[0]}}">
-            {% endfor %}
-        </form>
+    <form action="/patient_office/doctor_date" method="post">
+        {% for i in data %}
+            <input type="submit" name="specialization" value="{{ i[0] }}">
+        {% endfor %}
+    </form>
+    <a href="/patient_office"> вернуться обратно</a>
 
 </body>
 </html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Запись на прием</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f9f4; /* Более светлый фон */
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #388E3C; /* Темно-зеленый цвет */
+            margin-bottom: 30px;
+            font-size: 2em; /* Увеличенный размер шрифта */
+        }
+
+        p {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-left: 4px solid #388E3C; /* Темно-зеленая граница */
+            background-color: #e8f5e9; /* Светло-зеленый фон для параграфов */
+            border-radius: 4px; /* Закругленные углы */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #388E3C; /* Темно-зеленая граница */
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Более выраженная тень */
+        }
+
+        input[type="submit"] {
+            background-color: #388E3C; /* Темно-зеленый цвет */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s; /* Добавлен эффект масштабирования */
+            margin: 5px; /* Отступ между кнопками */
+            width: 100%; /* Кнопки занимают всю ширину контейнера */
+            max-width: 200px; /* Максимальная ширина кнопок */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2E7D32; /* Более темный зеленый при наведении */
+            transform: scale(1.05); /* Увеличение кнопки при наведении */
+        }
+
+        /* Стили для кнопок "Да" и "Нет" в одной строке */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px; /* Отступ сверху для кнопок */
+        }
+    </style>
+</head>
+<body>
+    <h1>Запись на прием</h1>
+    <p>Имя пациента: {{person['name_patient']}}</p>
+    <p>Дата рождения: {{person['birthday']}}</p>
+    <p>Дата записи: {{data['rec_date'].strftime('%A, %d %B %Y')}}</p>
+    <p>Время записи: {{ '%02d:%02d' | format((data['rec_time'].total_seconds() // 3600) | int, (((data['rec_time'].total_seconds() // 60) % 60) | int)) }}</p>
+    <p>Кабинет: {{data['office']}}</p>
+    <p>Врач: {{data['doctor_name']}}</p>
+    <p>Специализация: {{data['specialization']}}</p>
+
+    <form action="" method="post">
+        <p>Верны ли все записи?</p>
+        <input type="hidden" name="confim" value="True">
+        <input type="hidden" name="id" value="{{data['id_shedule']}}">
+
+        <div class="button-container">
+            <input type="submit" value="Да">
+        </div>
+    </form>
+    <form action="/patient_office/doctor_date" method="post">
+        <input type="hidden" name="specialization" value="{{data['specialization']}}">
+        <div class="button-container">
+            <input type="submit" value="Нет">
+        </div>
+    </form>
+</body>
+</html>

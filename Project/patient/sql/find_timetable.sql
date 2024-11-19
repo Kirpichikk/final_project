@@ -4,5 +4,4 @@ FROM
     shedule
 WHERE
     id_visit_card IS NULL AND id_doctor = "$id"
-        AND rec_date >= NOW()
-        AND rec_time >= NOW()
+        AND ADDDATE(rec_date, TIME(rec_time)) >= NOW()
