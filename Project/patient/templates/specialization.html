@@ -55,7 +55,7 @@
             background-color: #45a049; /* Темнее при наведении */
         }
 
-        .back-button {
+        .a {
             background-color: #4CAF50; /* Зеленый цвет кнопки "Вернуться" */
             color: white; /* Белый текст */
             border: none; /* Без границы */
@@ -72,7 +72,7 @@
             max-width: 300px; /* Максимальная ширина кнопки */
         }
 
-        .back-button:hover {
+        .a:hover {
             background-color: #45a049; /* Темнее при наведении */
         }
     </style>
@@ -84,7 +84,7 @@
         {% for i in data %}
             <input type="submit" name="specialization" value="{{ i[0] }}">
         {% endfor %}
-        <button type="submit" class="back-button" formaction="/patient_office">Вернуться обратно</button>
+        <a  href="/patient_office/">Вернуться обратно</a>
     </form>
 
 </body>
