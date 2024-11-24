@@ -1,7 +1,7 @@
 from flask import Blueprint, session, render_template, request
 import locale
 from patient.patient_model import get_personal_data, get_previous_visits, find_specialization, find_doctors, \
-    find_timetable, checking_data, update_data_in_db, change_shedule
+    find_timetable, checking_data, change_shedule
 
 locale.setlocale(locale.LC_TIME, 'Russian_Russia.1251')
 patient_Blueprint = Blueprint(
