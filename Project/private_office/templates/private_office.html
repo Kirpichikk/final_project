@@ -79,16 +79,5 @@
         <a href="/logout" class = "button"> выйти </a>
     </div>
     {% block index %} {% endblock %}
-
-    {% if role == 'supremedoctor' %}
-    <div class="SupremeDoctor">
-        <!-- Контент для главного врача -->
-    </div>
-    {% elif role == 'admin' %}
-    <div class="Admin">
-        <!-- Контент для администратора -->
-    </div>
-
-    {% endif %}
 </body>
 </html>

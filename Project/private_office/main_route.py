@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, session
 
+from access import role_required
 from private_office.main_model import shedule
 privateOffice_Blueprint = Blueprint(
     'privateOffice_bp',
@@ -8,6 +9,7 @@ privateOffice_Blueprint = Blueprint(
 )
 
 @privateOffice_Blueprint.route('/')
+@role_required
 def main_office_handler():
 
     info_data = [session['doctor_name'], session['specialization'], session['name_department']]
@@ -24,4 +26,13 @@ def main_office_handler():
         return render_template('register.html',
                                    data = info_data
                                    )
+    elif session['role'] == 'supremedoctor':
+        return render_template('supremedoctor.html',
+                               data=info_data
+                               )
+    elif session['role'] == 'admin':
+        print(session['role'])
+        return render_template('admin.html',
+                               data=info_data
+                               )
 

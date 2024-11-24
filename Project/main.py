@@ -11,6 +11,8 @@ application=Flask(__name__) #создание точки входа __name__-с�
 
 with open("db_config.json") as f:
     application.config['db_config']= json.load(f)
+with open("role_access.json") as f:
+    application.config['db_access']= json.load(f)
 
 application.secret_key = "my_secret_key"
 application.register_blueprint(auth_Blueprint, url_prefix = '/auth')
@@ -22,13 +24,15 @@ application.register_blueprint(doctor_Blueprint, url_prefix = '/reception')
 
 @application.route('/logout')
 def logout_handler():
+    with open("db_config.json") as f:
+        application.config['db_config'] = json.load(f)
     session.clear()
     return "вы вышли из системы"
 
 @application.route('/')
 @login_required
 def init_handler():
-    return redirect(url_for('privateOffice_bp.main_office_handler' if session.get('user_group') else 'patient_bp.main_office_handler'))
+    return redirect(url_for('privateOffice_bp.main_office_handler' if session.get('role') else 'patient_bp.main_office_handler'))
 
 if __name__ == '__main__':
     application.run(host='127.0.0.1', port=5000)

@@ -1,5 +1,7 @@
 import requests
 from flask import Blueprint, request, render_template, session, redirect, url_for, current_app
+
+from access import role_required
 from auth.model import authorization, create_basic_auth_token
 
 auth_Blueprint = Blueprint(

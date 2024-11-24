@@ -1,5 +1,6 @@
 from flask import Blueprint, request, render_template, session, redirect, url_for
 
+from access import role_required
 from doctor.model import insert_reception_notes, find_patient, change_app_mark
 
 doctor_Blueprint = Blueprint(
@@ -9,6 +10,7 @@ doctor_Blueprint = Blueprint(
 )
 
 @doctor_Blueprint.route('/', methods=['POST'])
+@role_required
 def reception_handler():
     if len(request.form) == 3:
         return render_template('reception.html',
