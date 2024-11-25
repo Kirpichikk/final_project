@@ -55,7 +55,10 @@
 </head>
 <body>
     <h1>{{message}}</h1>
-    <a class="button" href="{{url_for('report_bp.create_handler')}}">Создать ещё отчёт</a>
-    <a class="button" href="{{url_for('menu_bp.init_handler')}}">Вернуться в главное меню</a>
+    <form action="/report/create" method="post">
+            <input type="hidden" name="action" value="{{action}}">
+            <input type="submit" class="button" value="Просмотреть ещё отчёты">
+        </form>
+        <a class="button" href="{{ url_for('privateOffice_bp.main_office_handler') }}">Вернуться в главный кабинет</a>
 </body>
 </html>

@@ -1,3 +1,3 @@
-select DISTINCT year(date_of_sale) as year, month(date_of_sale) as month
-from sellproducts
+select DISTINCT year(rec_date) as year, month(rec_date) as month
+from shedule
 order by month

@@ -1,7 +1,6 @@
 SELECT
     *
 FROM
-    reports
+    report_count_new_patient
 WHERE
     year = "$year"
-        AND month = "$month"

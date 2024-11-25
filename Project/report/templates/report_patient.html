@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отчет по продуктам</title>
+    <title>Отчет</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -57,17 +57,13 @@
     </style>
 </head>
 <body>
-    <h1>Отчет по продуктам</h1>
+    <h1>Отчёт о новых зарегестрированных пациентах за год</h1>
     <table>
         <thead>
             <tr>
                 <th>Год</th>
                 <th>Месяц</th>
-                <th>Название продукта</th>
-                <th>Категория</th>
-                <th>Цена за килограмм</th>
-                <th>Итого</th>
-                <th>Итого масса</th>
+                <th>количество новых пациентов</th>
             </tr>
         </thead>
         <tbody>
@@ -75,18 +71,17 @@
             <tr>
                 <td>{{ i['year'] }}</td>
                 <td>{{ i['month'] }}</td>
-                <td>{{ i['pname'] }}</td>
-                <td>{{ i['name'] }}</td>
-                <td>{{ i['price_of_kg'] }}</td>
-                <td>{{ i['sum_price'] }}</td>
-                <td>{{ i['value_in_kg'] }}</td>
+                <td>{{ i['count_patient'] }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
     <div style="text-align: center;">
-        <a class="button" href="{{ url_for('report_bp.check_handler') }}">Просмотреть ещё отчёты</a>
-        <a class="button" href="{{ url_for('menu_bp.init_handler') }}">Вернуться в главное меню</a>
+        <form action="/report/check" method="post">
+            <input type="hidden" name="action" value="patient">
+            <input type="submit" class="button" value="Просмотреть ещё отчёты">
+        </form>
+        <a class="button" href="{{ url_for('privateOffice_bp.main_office_handler') }}">Вернуться в главный кабинет</a>
     </div>
 </body>
 </html>

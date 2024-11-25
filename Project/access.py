@@ -1,4 +1,4 @@
-from flask import session, redirect, url_for, request, current_app, render_template
+from flask import session, redirect, url_for, request, current_app
 from functools import wraps
 
 

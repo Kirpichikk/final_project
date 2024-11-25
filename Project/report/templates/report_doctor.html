@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчет</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007BFF; /* Синий цвет для заголовков */
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #e7f1ff; /* Светло-синий цвет при наведении */
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 10px;
+            background-color: #007BFF; /* Синий цвет для кнопок */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3; /* Темно-синий цвет при наведении */
+        }
+    </style>
+</head>
+<body>
+    <h1>Отчёт об количестве уволившихся врачей за месяц</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Год</th>
+                <th>Месяц</th>
+                <th>Количество уволившихся врачей</th>
+                <th>Департамент</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{ i['year'] }}</td>
+                <td>{{ i['month'] }}</td>
+                <td>{{ i['count_doctors'] }}</td>
+                <td>{{ i['department'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div style="text-align: center;">
+        <form action="/report/check" method="post">
+            <input type="hidden" name="action" value="doctor">
+            <input type="submit" class="button" value="Просмотреть ещё отчёты">
+        </form>
+        <a class="button" href="{{ url_for('privateOffice_bp.main_office_handler') }}">Вернуться в главный кабинет</a>
+    </div>
+</body>
+</html>

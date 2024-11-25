@@ -1,3 +1,3 @@
 select DISTINCT year, month
-from reports
+from report_layoff_doctor
 order by month

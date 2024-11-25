@@ -64,13 +64,30 @@
 </head>
 <body>
     <h1>Выберите отчет</h1>
-    <form action="" method="post">
-        {% for i in data %}
-        <input type="hidden" name="year" value="{{i['year']}}">
-        <input type="hidden" name="month" value="{{i['month']}}">
-        <input type="submit" value="Год: {{i['year']}}, Месяц: {{i['month']}}">
-        {% endfor %}
-    </form>
-    <a class="button" href="{{url_for('menu_bp.init_handler')}}">Вернуться в главное меню</a>
+        {% if action == 'patient'%}
+            {% for i in data %}
+            <form action="/report/result" method="post">
+            <input type="hidden" name="action" value="patient">
+                <input type="hidden" name="year" value="{{i['year']}}">
+                <input type="submit" value="Год: {{i['year']}}">
+            </form>
+            {% endfor %}
+        {% else %}
+            {% for i in data %}
+                <form action="/report/result" method="post">
+                {% if action == 'visits'%}
+                <input type="hidden" name="action" value="visits">
+                {% else %}
+                <input type="hidden" name="action" value="doctor">
+                {% endif %}
+                <input type="hidden" name="year" value="{{i['year']}}">
+                <input type="hidden" name="month" value="{{i['month']}}">
+                <input type="submit" value="Год: {{i['year']}}, Месяц: {{i['month']}}">
+                </form>
+            {% endfor %}
+        {% endif %}
+
+    <a class="button" href="{{url_for('report_bp.check_handler')}}">Выбрать другой отчёт</a>
+    <a class="button" href="{{url_for('privateOffice_bp.main_office_handler')}}">Вернуться в личный кабинет</a>
 </body>
 </html>

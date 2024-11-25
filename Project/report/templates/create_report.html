@@ -77,21 +77,25 @@
 </head>
 <body>
     <form action="" method="post">
-        <h1>Выберите дату и время для формирования отчёта</h1>
+        <h1>Выберите дату для формирования отчёта</h1>
         <label for="year">Выберите год</label>
         <select id="year" name="year">
             {% for i in year %}
                 <option value="{{i}}">{{i}}</option>
             {% endfor %}
         </select>
+        {% if action != "patient" %}
         <label for="month">Выберите месяц</label>
         <select id="month" name="month">
             {% for i in months %}
                 <option value="{{i}}">{{i}}</option>
             {% endfor %}
         </select>
+        {% endif %}
+        <input type="hidden" name="action" value="{{action}}">
         <input type="submit" value="Отправить">
     </form>
-    <a href="{{url_for('menu_bp.init_handler')}}">Вернуться в главное меню</a>
+    <a class="button" href="{{url_for('report_bp.create_handler')}}">Выбрать другой отчёт</a>
+    <a class="button" href="{{url_for('privateOffice_bp.main_office_handler')}}">Вернуться в личный кабинет</a>
 </body>
 </html>

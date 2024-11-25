@@ -31,7 +31,6 @@ def main_office_handler():
                                data=info_data
                                )
     elif session['role'] == 'admin':
-        print(session['role'])
         return render_template('admin.html',
                                data=info_data
                                )

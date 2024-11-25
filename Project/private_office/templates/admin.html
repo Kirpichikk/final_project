@@ -1,5 +1,36 @@
 {% extends 'private_office.html' %}
 
 {% block index %}
-<p>hello from admin</p>
+    <style>
+        .report-form {
+            display: flex; /* Используем Flexbox для расположения кнопок */
+            justify-content: flex-start; /* Выравнивание кнопок вправо */
+            margin: 20px; /* Отступы вокруг формы */
+        }
+
+        .report-button {
+            background-color: blue; /* Синий цвет */
+            color: white; /* Цвет текста */
+            border: none; /* Убираем границу */
+            padding: 15px 32px; /* Отступы */
+            text-align: center; /* Выравнивание текста */
+            text-decoration: none; /* Убираем подчеркивание */
+            display: inline-block; /* Для кнопок */
+            font-size: 16px; /* Размер шрифта */
+            margin-left: 10px; /* Отступ слева между кнопками */
+            cursor: pointer; /* Указатель при наведении */
+            border-radius: 5px; /* Скругление углов */
+            transition: background-color 0.3s; /* Плавный переход */
+        }
+
+        .report-button:hover {
+            background-color: darkblue; /* Темный синий при наведении */
+        }
+    </style>
+
+    <div class="report-form">
+        <a href="{{url_for('report_bp.check_handler')}}" class="report-button">Просмотреть отчёт</a>
+        <a href="{{url_for('report_bp.create_handler')}}" class="report-button">Создать отчёт</a>
+        <a href="{{url_for('report_bp.create_handler')}}" class="report-button">Редактировать расписание</a>
+    </div>
 {% endblock %}
