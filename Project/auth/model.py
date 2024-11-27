@@ -2,7 +2,7 @@ from base64 import b64encode
 
 from connection import DBConnection
 from sql_provider import SqlProvider
-from flask import current_app
+from flask import current_app, session
 import os
 
 provider = SqlProvider(
@@ -31,3 +31,19 @@ def create_basic_auth_token(login, password):
     credentials_b64 = b64encode(f'{login}:{password}'.encode('ascii')).decode('ascii')
     token = f'Basic {credentials_b64}'
     return token
+
+def create_session_internal(role, id, name, spec, dep):
+    session['role'] = role
+    session['id_inside'] = id
+    session['doctor_name'] = name
+    session['specialization'] = spec
+    session['name_department'] = dep
+    session.permanent = True
+    return
+
+def create_session_external(id, config):
+    session['id_inside'] = id
+    current_app.config['db_config']['user'] = "patient"
+    current_app.config['db_config']['password'] = config
+    session.permanent = True
+    return

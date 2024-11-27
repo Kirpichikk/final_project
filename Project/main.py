@@ -7,6 +7,7 @@ from report.route import report_Blueprint
 from request.request_manager import request_Blueprint
 from access import login_required
 from auth.route import auth_Blueprint
+from schedule.route import schedule_Blueprint
 
 application=Flask(__name__) #создание точки входа __name__-ссылка на имя файла
 
@@ -22,6 +23,7 @@ application.register_blueprint(privateOffice_Blueprint, url_prefix = '/cabinet')
 application.register_blueprint(patient_Blueprint, url_prefix = '/patient_office')
 application.register_blueprint(doctor_Blueprint, url_prefix = '/reception')
 application.register_blueprint(report_Blueprint, url_prefix = '/report')
+application.register_blueprint(schedule_Blueprint, url_prefix= '/schedule')
 
 
 @application.route('/logout')

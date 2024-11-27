@@ -1,5 +1,6 @@
 
 from flask import Blueprint, request, render_template
+from pyexpat.errors import messages
 
 from access import role_required
 from report.model import find_date, count_report, create_report, button_patient, button_visits, button_doctor, \
@@ -21,13 +22,16 @@ def check_handler():
         action = request.form.get('action')
         if action == 'patient':
             res = button_patient()
-            return render_template('find_report.html',data = res, action = action)
+            message = True if res is None else False
+            return render_template('find_report.html',data = res, action = action, message = message)
         elif action == 'visits':
             res = button_visits()
-            return render_template('find_report.html',data = res, action = action)
+            message = True if res is None else False
+            return render_template('find_report.html',data = res, action = action, message = message)
         else:
             res = button_doctor()
-            return render_template('find_report.html',data = res, action = action)
+            message = True if res is None else False
+            return render_template('find_report.html',data = res, action = action, message = message)
 
 @report_Blueprint.route('/result', methods=['POST'])
 def result_handler():

@@ -63,6 +63,9 @@
     </style>
 </head>
 <body>
+{%if message %}
+<h1>нет отчётов</h1>
+{% else %}
     <h1>Выберите отчет</h1>
         {% if action == 'patient'%}
             {% for i in data %}
@@ -86,7 +89,7 @@
                 </form>
             {% endfor %}
         {% endif %}
-
+{% endif %}
     <a class="button" href="{{url_for('report_bp.check_handler')}}">Выбрать другой отчёт</a>
     <a class="button" href="{{url_for('privateOffice_bp.main_office_handler')}}">Вернуться в личный кабинет</a>
 </body>

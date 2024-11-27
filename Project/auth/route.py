@@ -2,7 +2,7 @@ import requests
 from flask import Blueprint, request, render_template, session, redirect, url_for, current_app
 
 from access import role_required
-from auth.model import authorization, create_basic_auth_token
+from auth.model import authorization, create_basic_auth_token, create_session_internal, create_session_external
 
 auth_Blueprint = Blueprint(
     'auth_bp',
@@ -30,21 +30,18 @@ def login_handler():
             resp_json = response.json()
             if resp_json['status'] == 200:
                 id_user =  resp_json['user']
-                session['id_inside'] = id_user['id_inside']
-                current_app.config['db_config']['user'] = "patient"
-                current_app.config['db_config']['password'] = id_user['db_config']
-                session.permanent = True
+                create_session_external(id_user['id_inside'], id_user['db_config'])
                 return redirect(url_for('patient_bp.main_office_handler'))
         else:
             # find internal user
             user = authorization(login, password)
             if user:
-                session['role'] = user['role']
-                session['id_inside'] = user['id_inside']
-                session['doctor_name'] = user['doctor_name']
-                session['specialization'] = user['specialization']
-                session['name_department'] = user['name_department']
-                session.permanent = True
+                create_session_internal(user['role'],
+                                        user['id_inside'],
+                                        user['doctor_name'],
+                                        user['specialization'],
+                                        user['name_department']
+                                        )
                 return redirect(url_for('privateOffice_bp.main_office_handler'))
 
         return render_template('auth_login.html', wrong = True)
