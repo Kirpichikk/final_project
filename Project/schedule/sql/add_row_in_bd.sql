@@ -1,0 +1,1 @@
+insert into shedule (id_office, rec_date, rec_time, id_doctor) values ("$office", "$date", "$time", "$doctor")

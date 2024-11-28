@@ -1,5 +1,5 @@
-from flask import Flask, session, json, url_for, redirect
-
+import redis
+from flask import Flask, session, json, url_for, redirect, current_app
 from doctor.route import doctor_Blueprint
 from patient.patient_route import patient_Blueprint
 from private_office.main_route import privateOffice_Blueprint
@@ -15,6 +15,11 @@ with open("db_config.json") as f:
     application.config['db_config']= json.load(f)
 with open("role_access.json") as f:
     application.config['db_access']= json.load(f)
+with open("redis_config.json") as f:
+    application.config['redis']= json.load(f)
+
+r=redis.Redis(host="127.0.0.1", port= 6379, db=0)
+r.flushall()
 
 application.secret_key = "my_secret_key"
 application.register_blueprint(auth_Blueprint, url_prefix = '/auth')

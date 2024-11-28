@@ -1,3 +1,4 @@
+import calendar
 
 from flask import Blueprint, request, render_template
 from pyexpat.errors import messages
@@ -12,6 +13,10 @@ report_Blueprint = Blueprint(
     __name__,
     template_folder= 'templates'
 )
+
+@report_Blueprint.app_template_filter('month_name')
+def month_name(month_number):
+    return calendar.month_name[month_number]
 
 @report_Blueprint.route('/check', methods = ['GET','POST'])
 @role_required
@@ -40,7 +45,6 @@ def result_handler():
         res = select_report_for_patient(request.form.get('year'))
         return render_template('report_patient.html',data = res, action = action)
     elif action == 'visits':
-        print(request.form.get('year'), request.form.get('month'))
         res = select_report_for_visits(request.form.get('year'), request.form.get('month'))
         return render_template('report_visits.html',data = res, action = action)
     else:

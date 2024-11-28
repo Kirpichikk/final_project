@@ -85,7 +85,7 @@
                 {% endif %}
                 <input type="hidden" name="year" value="{{i['year']}}">
                 <input type="hidden" name="month" value="{{i['month']}}">
-                <input type="submit" value="Год: {{i['year']}}, Месяц: {{i['month']}}">
+                <input type="submit" value="Год: {{i['year']}}, Месяц: {{i['month'] | month_name}}">
                 </form>
             {% endfor %}
         {% endif %}

@@ -70,7 +70,7 @@
             {% for i in data %}
             <tr>
                 <td>{{ i['year'] }}</td>
-                <td>{{ i['month'] }}</td>
+                <td>{{ i['month'] | month_name}}</td>
                 <td>{{ i['count_patient'] }}</td>
             </tr>
             {% endfor %}

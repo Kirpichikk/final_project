@@ -88,7 +88,7 @@
         <label for="month">Выберите месяц</label>
         <select id="month" name="month">
             {% for i in months %}
-                <option value="{{i}}">{{i}}</option>
+                <option value="{{i}}">{{i | month_name}}</option>
             {% endfor %}
         </select>
         {% endif %}

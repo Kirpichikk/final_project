@@ -1,0 +1,1 @@
+delete from shedule where id_shedule = "$id"
