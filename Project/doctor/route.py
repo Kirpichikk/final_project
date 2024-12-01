@@ -17,11 +17,12 @@ def reception_handler():
                            data = request.form
                            )
     else:
+        patient = find_patient(request.form.get('id_schedule'))['id_visit_card']
         insert_reception_notes(
             request.form.get('diagnosis'),
             request.form.get('complains'),
             request.form.get('appointments'),
-            find_patient(request.form.get('id_schedule'))['id_visit_card'],
+            patient,
             session['id_inside']
         )
         change_app_mark(request.form.get('id_schedule'))

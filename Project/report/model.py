@@ -1,4 +1,5 @@
 from connection import DBConnection
+from interaction_with_bd import find_data_in_db, find_in_db, call_proc
 from sql_provider import SqlProvider
 from flask import current_app
 import os
@@ -6,36 +7,6 @@ import os
 provider = SqlProvider(
     os.path.join(os.path.dirname(__file__), 'sql')
 )
-
-def call_proc(db_config, proc_name, *args):
-    with DBConnection(db_config) as cursor:
-        if cursor is None:
-            return None
-        param_list = []
-        for arg in args:
-            param_list.append(arg)
-        res = cursor.callproc(proc_name, param_list)
-    return res
-
-def find_in_db(db_config, sql):
-    with DBConnection(db_config) as cursor:
-        if cursor.execute(sql) is None:
-            return None
-        else:
-            result = [row for row in cursor.fetchall()]
-            if len(result) == 0:
-                return None
-            else:
-                return result
-
-def find_data_in_db(db_config, sql):
-    with DBConnection(db_config) as cursor:
-        if cursor.execute(sql) is None:
-            return None
-        else:
-            schema = [column[0] for column in cursor.description]
-            result = [dict(zip(schema, row)) for row in cursor.fetchall()]
-            return result
 
 def create_report(name_report, *args):
     call_proc(current_app.config['db_config'], name_report, *args)

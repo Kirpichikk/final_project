@@ -1,11 +1,6 @@
-import json
-
 import requests
-from flask import Blueprint, request, render_template, session, redirect, url_for, current_app
-
-from access import role_required
+from flask import Blueprint, request, render_template, redirect, url_for
 from auth.model import authorization, create_basic_auth_token, create_session_internal, create_session_external
-from cache.redis_cache import RedisCache
 
 auth_Blueprint = Blueprint(
     'auth_bp',
@@ -16,12 +11,6 @@ auth_Blueprint = Blueprint(
 @auth_Blueprint.route('/', methods = ['GET', 'POST'])
 def login_handler():
     if request.method == 'GET':
-
-        cache = RedisCache(current_app.config['redis'])
-        dictor = {"val":"123","23":23}
-        cache.set("user:1", json.dumps(dictor))
-        print(cache.read("user:1"))
-
         return render_template('auth_login.html')
     else:
         login = request.form.get('login', '')

@@ -1,28 +1,12 @@
 from datetime import datetime
 import os
-
 from flask import current_app
-
-from connection import DBConnection
+from interaction_with_bd import find_data_in_db, update_data_in_db
 from sql_provider import SqlProvider
 
 provider = SqlProvider(
     os.path.join(os.path.dirname(__file__), 'sql')
 )
-
-def update_data_in_db(db_config, sql):
-    with DBConnection(db_config) as cursor:
-        if cursor.execute(sql) is None:
-            return None
-
-def find_data_in_db(db_config, sql):
-    with DBConnection(db_config) as cursor:
-        if cursor.execute(sql) is None:
-            return None
-        else:
-            schema = [column[0] for column in cursor.description]
-            result = [dict(zip(schema, row)) for row in cursor.fetchall()]
-            return result
 
 def insert_reception_notes(diagnosis, complains, appointment, id_patient, id_doctor):
     sql_statement = provider.get(
@@ -36,7 +20,7 @@ def insert_reception_notes(diagnosis, complains, appointment, id_patient, id_doc
             'id_doctor': id_doctor
         }
     )
-    update_data_in_db(current_app.config['db_config'], sql_statement)
+    return update_data_in_db(current_app.config['db_config'], sql_statement)
 
 def find_patient(id_schedule):
     sql_statement = provider.get(

@@ -1,48 +1,19 @@
 import os
 from datetime import datetime
-
 from flask import current_app, json
-
 from cache.redis_cache import RedisCache
-from connection import DBConnection
+from interaction_with_bd import find_data_in_db, update_data_in_db, find_in_db
 from sql_provider import SqlProvider
 
 provider = SqlProvider(
     os.path.join(os.path.dirname(__file__), 'sql')
 )
 
-def find_data_in_db(db_config, sql):
-    with DBConnection(db_config) as cursor:
-        if cursor.execute(sql) is None:
-            return None
-        else:
-            schema = [column[0] for column in cursor.description]
-            result = [dict(zip(schema, row)) for row in cursor.fetchall()]
-            return result
-
 def find_start_schedule():
     with open('schedule/sql/start_schedule.sql', 'r') as file:
         sql_script = file.read()
     result = find_data_in_db(current_app.config['db_config'], sql_script)
     return result
-
-def do_something_in_db(db_config, sql):
-    with DBConnection(db_config) as cursor:
-        if cursor.execute(sql) is None:
-            return None
-        else:
-            return
-
-def find_in_db(db_config, sql):
-    with DBConnection(db_config) as cursor:
-        if cursor.execute(sql) is None:
-            return None
-        else:
-            result = [row for row in cursor.fetchall()]
-            if len(result) == 0:
-                return None
-            else:
-                return result
 
 def find_id():
     with open('schedule/sql/find_id.sql', 'r') as file:
@@ -135,7 +106,7 @@ def remove_local_data_to_bd():
 def delete_in_bd(delete):
     for id in delete:
         sql_statement=provider.get('delete_row_in_bd.sql',{'id': id})
-        do_something_in_db(current_app.config['db_config'],sql_statement)
+        update_data_in_db(current_app.config['db_config'],sql_statement)
     return
 
 def add_in_bd(add):
@@ -148,7 +119,7 @@ def add_in_bd(add):
                 'doctor': int(res[3])
             }
         )
-        do_something_in_db(current_app.config['db_config'], sql_statement)
+        update_data_in_db(current_app.config['db_config'], sql_statement)
     return
 
 def edit_in_bd(edit):
@@ -162,5 +133,5 @@ def edit_in_bd(edit):
                 'id': int(id)
             }
         )
-        do_something_in_db(current_app.config['db_config'], sql_statement)
+        update_data_in_db(current_app.config['db_config'], sql_statement)
     return
