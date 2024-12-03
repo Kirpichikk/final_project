@@ -19,7 +19,8 @@ def find_date():
     years = [i['year'] for i in result]
     unique_years = sorted(list(set(years)))
     month = [i['month'] for i in result]
-    return unique_years, month
+    unique_month = sorted(list(set(month)))
+    return unique_years, unique_month
 
 def find_date_doctor():
     with open('report/sql/find_dates_doctors.sql', 'r') as file:
@@ -28,7 +29,8 @@ def find_date_doctor():
     years = [i['year'] for i in result]
     unique_years = sorted(list(set(years)))
     month = [i['month'] for i in result]
-    return unique_years, month
+    unique_month = sorted(list(set(month)))
+    return unique_years, unique_month
 
 def find_date_patient():
     with open('report/sql/find_dates_patient.sql', 'r') as file:
@@ -97,3 +99,59 @@ def select_report_for_doctor(year, month):
         {'year': year, 'month': month}
     )
     return find_data_in_db(current_app.config['db_config'], sql_statement)
+
+def bool_dates(year, month):
+    sql_statment = provider.get(
+        'find_dates_visits.sql',
+        {
+            'yyear': year,
+            'mmonth': month
+        }
+    )
+    return find_in_db(current_app.config['db_config'], sql_statment)
+
+def bool_dates_doctor(year, month):
+    sql_statment = provider.get(
+        'find_dates_doctor.sql',
+        {
+            'yyear': year,
+            'mmonth': month
+        }
+    )
+    return find_in_db(current_app.config['db_config'], sql_statment)
+
+def create_report_for_some_action(year, month, action):
+    if action == 'patient':
+        if count_report(year) is None:
+            create_report('report_1', year)
+            return "отчёт создан"
+        else:
+            return "отчёт уже существует"
+    elif action == 'visits':
+        if bool_dates(year, month)[0][0] == 0:
+            return "по выбранной дате не получиться создать отчёт"
+        elif count_report_visits(year, month) is None:
+            create_report('report_2', year, month)
+            return "отчёт создан"
+        else:
+            return "отчёт уже существует"
+    else:
+        if bool_dates_doctor(year, month)[0][0] == 0:
+            return "по выбранной дате не получиться создать отчёт"
+        elif count_report_doctor(year, month) is None:
+            create_report('report_3', year, month)
+            return "отчёт создан"
+        else:
+            return "отчёт уже существует"
+
+def find_report_for_some_action(action):
+    if action == 'patient':
+        res = button_patient()
+    elif action == 'visits':
+        res = button_visits()
+    else:
+        res = button_doctor()
+
+    message = True if not res else False
+    return res, message
+

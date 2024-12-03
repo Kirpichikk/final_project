@@ -22,12 +22,12 @@ def create_basic_auth_token(login, password):
     token = f'Basic {credentials_b64}'
     return token
 
-def create_session_internal(role, id, name, spec, dep):
-    session['role'] = role
-    session['id_inside'] = id
-    session['doctor_name'] = name
-    session['specialization'] = spec
-    session['name_department'] = dep
+def create_session_internal(args):
+    session['role'] = args['role']
+    session['id_inside'] = args['id_inside']
+    session['doctor_name'] = args['doctor_name']
+    session['specialization'] = args['specialization']
+    session['name_department'] = args['name_department']
     session.permanent = True
     return
 

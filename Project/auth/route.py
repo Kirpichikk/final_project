@@ -34,12 +34,7 @@ def login_handler():
             # find internal user
             user = authorization(login, password)
             if user:
-                create_session_internal(user['role'],
-                                        user['id_inside'],
-                                        user['doctor_name'],
-                                        user['specialization'],
-                                        user['name_department']
-                                        )
+                create_session_internal(user)
                 return redirect(url_for('privateOffice_bp.main_office_handler'))
 
         return render_template('auth_login.html', wrong = True)
