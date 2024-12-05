@@ -1,6 +1,6 @@
 {
   "doctor": ["privateOffice_bp.main_office_handler", "doctor_bp.reception_handler"],
-  "register": ["privateOffice_bp.main_office_handler", "request_bp.time_handler", "request_bp.floor_handler", "request_bp.specialization_handler"],
+  "register": ["privateOffice_bp.main_office_handler", "request_bp.time_handler", "request_bp.floor_handler", "request_bp.specialization_handler", "request_bp.user_handler"],
   "supremedoctor": ["privateOffice_bp.main_office_handler", "report_bp.check_handler", "report_bp.result_handler"],
   "admin": ["privateOffice_bp.main_office_handler", "report_bp.check_handler", "report_bp.create_handler", "report_bp.result_handler","schedule_bp.init_handler","schedule_bp.add_handler","schedule_bp.edit_handler","schedule_bp.delete_handler","schedule_bp.end_handler"]
 }

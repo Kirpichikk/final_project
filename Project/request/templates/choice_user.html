@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать запись</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .error {
+            color: #e74c3c; /* Красный цвет для ошибок */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px; /* Максимальная ширина поля ввода */
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: blue; /* Синий цвет кнопки */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 5px; /* Отступ между кнопками */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Темно-синий цвет при наведении */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center; /* Центрируем кнопки */
+            margin-top: 20px; /* Отступ сверху */
+        }
+
+        .button-container form {
+            margin: 0 10px; /* Отступы между формами */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Создать запись</h1>
+        {% if error %}
+        <h2 class="error">Такого пациента нет</h2>
+        {% endif %}
+        <h2>Врач: {{name[0][0]}}</h2>
+        <h2>Дата: {{date}}</h2>
+        <h2>Время: {{time}}</h2>
+        <form action="/request/createNote" method="post">
+            <input type="hidden" name="name" value="{{id}}">
+            <input type="hidden" name="date" value="{{date}}">
+            <input type="hidden" name="time" value="{{time}}">
+            <input type="number" name="id_patient" min="1" step="1" required placeholder="ID пациента" aria-label="ID пациента">
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+    <div class="button-container">
+        <form action="/cabinet/" method="get">
+            <input type="submit" value="Вернуться в главное меню">
+        </form>
+        <form action="/request/findFreeTime" method="post">
+            <input type="hidden" name="names" value="{{id}}">
+            <input type="hidden" name="date" value="{{date}}">
+            <input type="submit" value="Выбрать другое время">
+        </form>
+    </div>
+</body>
+</html>

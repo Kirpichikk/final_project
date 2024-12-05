@@ -1,7 +1,7 @@
 import os
 from flask import current_app
 from connection import DBConnection
-from interaction_with_bd import find_in_db
+from interaction_with_bd import find_in_db, update_data_in_db
 from sql_provider import SqlProvider
 from datetime import datetime
 
@@ -62,3 +62,45 @@ def find_doctors(name):
 
     result = find_in_db(current_app.config['db_config'], sql_statement)
     return result
+
+def find_name_doctor(id):
+    sql_statement = provider.get(
+        'find_name.sql',
+        {
+            'id': id
+        }
+    )
+    result = find_in_db(current_app.config['db_config'], sql_statement)
+    return result
+
+def find_patient(id):
+    sql_statement = provider.get(
+        'find_patient.sql',
+        {
+            'id': id
+        }
+    )
+    result = find_in_db(current_app.config['db_config'], sql_statement)
+    return result
+
+def find_id_schedule(name, date, time):
+    sql_statement = provider.get(
+        'find_id_schedule.sql',
+        {
+            'date': date,
+            'time': time,
+            'id': name
+        }
+    )
+    result = find_in_db(current_app.config['db_config'], sql_statement)
+    return result[0][0]
+
+def create_note(patient, id):
+    sql_statement = provider.get(
+        'create_note.sql',
+        {
+            'patient': patient,
+            'id': id
+        }
+    )
+    update_data_in_db(current_app.config['db_config'], sql_statement)
