@@ -1,3 +1,5 @@
 update shedule
 set id_visit_card="$patient"
-where id_shedule="$id"
+where rec_date="$date"
+and rec_time="$time"
+and id_doctor="$id"

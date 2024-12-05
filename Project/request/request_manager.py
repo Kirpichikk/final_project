@@ -1,9 +1,8 @@
-from flask import Blueprint, request, render_template, url_for
-from werkzeug.utils import redirect
+from flask import Blueprint, request, render_template, url_for, redirect
 
 from access import role_required
 from request.request_model import find_names, find_time, find_floor, find_specialization, find_doctors, filter_date, \
-    find_name_doctor, find_patient, find_id_schedule, create_note
+    find_name_doctor, find_patient, create_note
 
 request_Blueprint = Blueprint(
     'request_bp',
@@ -56,8 +55,7 @@ def user_handler():
     else:
         find = find_patient(patient)
         if find:
-            id_schedule = find_id_schedule(doctor_id,date,time)
-            create_note(patient,id_schedule)
+            create_note(patient,doctor_id,date,time)
             return(redirect(url_for('privateOffice_bp.main_office_handler')))
         else:
             return render_template('choice_user.html',

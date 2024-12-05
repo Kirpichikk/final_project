@@ -83,24 +83,14 @@ def find_patient(id):
     result = find_in_db(current_app.config['db_config'], sql_statement)
     return result
 
-def find_id_schedule(name, date, time):
-    sql_statement = provider.get(
-        'find_id_schedule.sql',
-        {
-            'date': date,
-            'time': time,
-            'id': name
-        }
-    )
-    result = find_in_db(current_app.config['db_config'], sql_statement)
-    return result[0][0]
-
-def create_note(patient, id):
+def create_note(patient, name, date, time):
     sql_statement = provider.get(
         'create_note.sql',
         {
             'patient': patient,
-            'id': id
+            'date': date,
+            'time': time,
+            'id': name
         }
     )
     update_data_in_db(current_app.config['db_config'], sql_statement)
