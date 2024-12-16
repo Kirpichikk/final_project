@@ -1,12 +1,9 @@
 from datetime import datetime
-
 from dateutil.relativedelta import relativedelta
 from flask import Blueprint, render_template, url_for, redirect, request
-
 from access import role_required
-from schedule.model import find_start_schedule, create_name_id, find_names, add_in_delete_cache, \
-    create_office_doctor, get_from_name_id, get_from_office_id, change_edit_cache, change_local_table, \
-    add_in_local_table, remove_local_data_to_bd, change_add_cache, delete_in_bd, add_in_bd, edit_in_bd
+from schedule.model import find_start_schedule, create_name_id, find_names, \
+    create_office_doctor, add_data_in_cache, edit_data_in_cache, del_data_in_cache, finish_operations
 
 schedule_Blueprint = Blueprint(
     'schedule_bp',
@@ -29,52 +26,29 @@ def init_handler():
     maxx = (datetime.now() + relativedelta(months=1)).date().isoformat()
     return render_template('start_page.html', data=start, names=names, min=minn, max=maxx)
 
-@schedule_Blueprint.route('/add', methods=['POST'])
+@schedule_Blueprint.route('/add', methods=['GET', 'POST'])
 @role_required
 def add_handler():
     global start
-    start = add_in_local_table(start, request.form.get('date'), request.form.get('time'), request.form.get('name'))
-
-    id_doctor = get_from_name_id(request.form.get('name'))
-    id_office = get_from_office_id(id_doctor)
-    id = start[-1]['id_shedule']
-    data = [id_office, request.form.get('date'), request.form.get('time'), id_doctor]
-    change_add_cache(id,data)
-
+    start = add_data_in_cache(start, request.form)
     return redirect(url_for('schedule_bp.init_handler', start='again'))
 
-@schedule_Blueprint.route('/edit/<int:id>', methods=['POST'])
+@schedule_Blueprint.route('/edit/<int:id>', methods=['GET', 'POST'])
 @role_required
 def edit_handler(id):
-    id_doctor = get_from_name_id(request.form.get('name'))
-    id_office = get_from_office_id(id_doctor)
-    data = [id_office, request.form.get('date'), request.form.get('time'), id_doctor]
-    change_edit_cache(id, data)
-
     global start
-    start = change_local_table(start, id, request.form.get('date'), request.form.get('time'), request.form.get('name'))
-
+    start = edit_data_in_cache(start, request.form, id)
     return redirect(url_for('schedule_bp.init_handler', start='again'))
 
-@schedule_Blueprint.route('/del/<int:id>', methods=['POST'])
+@schedule_Blueprint.route('/del/<int:id>', methods=['GET', 'POST'])
 @role_required
 def delete_handler(id):
     global start
-    res = [i for i in start if i['id_shedule']!=id]
-    start = res
-    add_in_delete_cache(id)
+    start = del_data_in_cache(id, start)
     return redirect(url_for('schedule_bp.init_handler', start='again'))
 
 @schedule_Blueprint.route('/end')
 @role_required
 def end_handler():
-    delete, edit, add = remove_local_data_to_bd()
-    if delete:
-        delete_in_bd(delete)
-
-    if add:
-        add_in_bd(add)
-
-    if edit:
-        edit_in_bd(edit)
+    finish_operations()
     return redirect(url_for('privateOffice_bp.main_office_handler'))

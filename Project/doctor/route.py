@@ -9,7 +9,7 @@ doctor_Blueprint = Blueprint(
     template_folder= 'templates'
 )
 
-@doctor_Blueprint.route('/', methods=['POST'])
+@doctor_Blueprint.route('/', methods=['GET', 'POST'])
 @role_required
 def reception_handler():
     if len(request.form) == 3:
@@ -17,13 +17,5 @@ def reception_handler():
                            data = request.form
                            )
     else:
-        patient = find_patient(request.form.get('id_schedule'))['id_visit_card']
-        insert_reception_notes(
-            request.form.get('diagnosis'),
-            request.form.get('complains'),
-            request.form.get('appointments'),
-            patient,
-            session['id_inside']
-        )
-        change_app_mark(request.form.get('id_schedule'))
+        insert_reception_notes(request.form)
         return redirect(url_for('privateOffice_bp.main_office_handler'))

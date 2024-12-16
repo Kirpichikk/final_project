@@ -17,6 +17,8 @@ def shedule(id_doctor):
         }
     )
     result = find_data_in_db(current_app.config['db_config'], sql_statement)
+    if result is None:
+        return False
     sorted_result = sorted(result, key = lambda x: x['rec_time'])
     return sorted_result
 

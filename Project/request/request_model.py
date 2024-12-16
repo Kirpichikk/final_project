@@ -94,3 +94,11 @@ def create_note(patient, name, date, time):
         }
     )
     update_data_in_db(current_app.config['db_config'], sql_statement)
+
+def get_from_request(request_data):
+    doctor = find_name_doctor(request_data.get('name'))
+    doctor_id = request_data.get('name')
+    date = request_data.get('date')
+    time = request_data.get('time')
+    patient = request_data.get('id_patient', '')
+    return doctor, doctor_id, date, time, patient

@@ -120,7 +120,10 @@ def bool_dates_doctor(year, month):
     )
     return find_in_db(current_app.config['db_config'], sql_statment)
 
-def create_report_for_some_action(year, month, action):
+def create_report_for_some_action(request_data):
+    year = request_data.get('year')
+    action = request_data.get('action')
+    month = request_data.get('month', '')
     if action == 'patient':
         if count_report(year) is None:
             create_report('report_1', year)

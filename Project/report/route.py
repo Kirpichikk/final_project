@@ -29,7 +29,7 @@ def check_handler():
         res, message = find_report_for_some_action(action)
         return render_template('find_report.html', data=res, action=action, message=message)
 
-@report_Blueprint.route('/result', methods=['POST'])
+@report_Blueprint.route('/result', methods=['GET', 'POST'])
 @role_required
 def result_handler():
     action = request.form.get('action')
@@ -61,9 +61,5 @@ def create_handler():
                 year, month = find_date_doctor()
                 return render_template('create_report.html', year=year, months=month, action=action)
         else:
-            year = request.form.get('year')
-            action = request.form.get('action')
-            month = request.form.get('month', '')
-            message = create_report_for_some_action(year, month, action)
-
-            return render_template('result_report.html', message=message, action=action)
+            message = create_report_for_some_action(request.form)
+            return render_template('result_report.html', message=message, action=request.form.get('action'))

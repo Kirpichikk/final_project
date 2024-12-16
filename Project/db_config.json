@@ -1,7 +1,44 @@
 {
-    "host" : "127.0.0.1",
-    "port" : 3306,
-    "user" : "root",
-    "password" : "Aniretake105",
-    "db" : "new_schema"
+    "root": {
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "root",
+        "password": "Aniretake105",
+        "db": "new_schema"
+    },
+    "patient": {
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "patient",
+        "password": "123abc",
+        "db": "new_schema"
+    },
+    "doc": {
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "doctor",
+        "password": "doctorsyperpassword",
+        "db": "new_schema"
+    },
+    "reg": {
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "register",
+        "password": "whytherepassword",
+        "db": "new_schema"
+    },
+    "soupdoc": {
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "headdoctor",
+        "password": "superhardpassword123",
+        "db": "new_schema"
+    },
+    "addmin": {
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "admin",
+        "password": "pass123abcword",
+        "db": "new_schema"
+    }
 }

@@ -1,5 +1,5 @@
 import os
-from flask import current_app
+from flask import current_app, session
 from datetime import datetime
 from interaction_with_bd import find_data_in_db, update_data_in_db, find_in_db
 from sql_provider import SqlProvider
@@ -17,6 +17,8 @@ def get_personal_data(id_user):
     )
     result = find_data_in_db(current_app.config['db_config'], sql_statement)
     result[0]['birthday'] = datetime.strftime(result[0]['birthday'], "%d.%m.%Y")
+    session['name_patient'] = result[0]['name_patient']
+    session['birthday'] = result[0]['birthday']
     return result[0]
 
 def get_previous_visits(id_user):

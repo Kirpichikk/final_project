@@ -2,7 +2,7 @@ from flask import Blueprint, request, render_template, url_for, redirect
 
 from access import role_required
 from request.request_model import find_names, find_time, find_floor, find_specialization, find_doctors, filter_date, \
-    find_name_doctor, find_patient, create_note
+    find_patient, create_note, get_from_request
 
 request_Blueprint = Blueprint(
     'request_bp',
@@ -37,14 +37,10 @@ def time_handler():
                                Date = request.form.get('date')
                                )
 
-@request_Blueprint.route('/createNote', methods=['POST'])
+@request_Blueprint.route('/createNote', methods=['GET', 'POST'])
 @role_required
 def user_handler():
-    doctor = find_name_doctor(request.form.get('name'))
-    doctor_id = request.form.get('name')
-    date = request.form.get('date')
-    time = request.form.get('time')
-    patient = request.form.get('id_patient', '')
+    doctor, doctor_id, date, time, patient = get_from_request(request.form)
     if patient == '':
         return render_template('choice_user.html',
                                name = doctor,
@@ -74,7 +70,6 @@ def floor_handler():
     else:
         result = find_floor(request.form.get('num'))
         state = False if result is None else True
-
         return render_template('output.html',
                                data=result,
                                boolValue=state,
@@ -92,7 +87,6 @@ def specialization_handler():
                                )
     else:
         result = find_doctors(request.form.get('names'))
-
         return render_template('output.html',
                                data=result,
                                request='specialization'

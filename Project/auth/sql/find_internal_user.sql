@@ -3,7 +3,8 @@ SELECT
     id_inside,
     doctor_name,
     specialization,
-    name_department
+    name_department,
+    db_config
 FROM
     users
         JOIN

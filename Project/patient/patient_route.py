@@ -13,9 +13,6 @@ patient_Blueprint = Blueprint(
 @patient_Blueprint.route('/')
 def main_office_handler():
     result = get_personal_data(session['id_inside'])
-    session['name_patient'] = result['name_patient']
-    session['birthday'] = result['birthday']
-
     visits = get_previous_visits(session['id_inside'])
     return render_template('main_office.html',
                            data = result,
@@ -32,13 +29,12 @@ def specialization_handler():
 @patient_Blueprint.route('/doctor_date', methods = ['GET', 'POST'])
 def doctor_handler():
     subdata = find_timetable(find_doctors(request.form.get('specialization')))
-    data = [i for i in subdata]
     return render_template('timetable.html',
-                           doctors=data,
+                           doctors=[i for i in subdata],
                            timetable=subdata,
                            )
 
-@patient_Blueprint.route('/confirmation', methods = ['POST'])
+@patient_Blueprint.route('/confirmation', methods = ['GET', 'POST'])
 def confirmation_handler():
     if request.form.get('confim', '')== '':
         data_from_bd = checking_data(request.form.get('id_shedule'))
@@ -47,7 +43,5 @@ def confirmation_handler():
                                person = session
                                )
     else:
-        id_shedule = request.form.get('id')
-        id_user = session['id_inside']
-        change_shedule(id_user, id_shedule)
+        change_shedule(session['id_inside'], request.form.get('id'))
         return render_template('result.html')

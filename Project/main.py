@@ -12,14 +12,12 @@ from schedule.route import schedule_Blueprint
 application=Flask(__name__) #создание точки входа __name__-ссылка на имя файла
 
 with open("db_config.json") as f:
-    application.config['db_config']= json.load(f)
+    application.config['db_config']= json.load(f)['root']
 with open("role_access.json") as f:
     application.config['db_access']= json.load(f)
 with open("redis_config.json") as f:
     application.config['redis']= json.load(f)
 
-r=redis.Redis(host="127.0.0.1", port= 6379, db=0)
-r.flushall()
 
 application.secret_key = "my_secret_key"
 application.register_blueprint(auth_Blueprint, url_prefix = '/auth')
@@ -34,7 +32,7 @@ application.register_blueprint(schedule_Blueprint, url_prefix= '/schedule')
 @application.route('/logout')
 def logout_handler():
     with open("db_config.json") as f:
-        application.config['db_config'] = json.load(f)
+        application.config['db_config'] = json.load(f)['root']
     session.clear()
     return "вы вышли из системы"
 

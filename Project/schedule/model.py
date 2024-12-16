@@ -135,3 +135,41 @@ def edit_in_bd(edit):
         )
         update_data_in_db(current_app.config['db_config'], sql_statement)
     return
+
+def add_data_in_cache(start, request_data):
+    date = request_data.get('date')
+    time = request_data.get('time')
+    name = request_data.get('name')
+
+    id_doctor = get_from_name_id(name)
+    id_office = get_from_office_id(id_doctor)
+    id = start[-1]['id_shedule']
+    data = [id_office, date, time, id_doctor]
+    change_add_cache(id,data)
+    return add_in_local_table(start, date, time, name)
+
+def edit_data_in_cache(start, request_data, id):
+    date = request_data.get('date')
+    time = request_data.get('time')
+    name = request_data.get('name')
+    id_doctor = get_from_name_id(name)
+    id_office = get_from_office_id(id_doctor)
+    data = [id_office, date, time, id_doctor]
+    change_edit_cache(id, data)
+    return change_local_table(start, id,date, time, name)
+
+def del_data_in_cache(id, start):
+    res = [i for i in start if i['id_shedule'] != id]
+    add_in_delete_cache(id)
+    return res
+
+def finish_operations():
+    delete, edit, add = remove_local_data_to_bd()
+    if delete:
+        delete_in_bd(delete)
+
+    if add:
+        add_in_bd(add)
+
+    if edit:
+        edit_in_bd(edit)
